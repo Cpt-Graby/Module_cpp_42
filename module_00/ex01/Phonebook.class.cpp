@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:52:16 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/18 13:10:43 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:49:45 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ PhoneBook::~PhoneBook(void) {
 }
 
 void	PhoneBook::_add_contact_to_line(int index){
-	//TODO Ecrire les proprietes pour les ecrire dans une fonction.
+	this->_book[index].ask_param();
+	if (this->_number_of_contact < 7)
+		this->_number_of_contact++;
+	return ;
 }
 
 int		PhoneBook::_get_number_of_contact(void) const{
@@ -50,6 +53,5 @@ void PhoneBook::add_contact(void) {
 		}
 	}
 	this->_add_contact_to_line(0);
-	//Fonction pour augmenter les nombres de contactes
 	return ;
 }
