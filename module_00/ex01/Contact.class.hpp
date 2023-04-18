@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 11:32:18 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/17 18:16:31 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/18 13:03:47 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ class Contact {
 		std::string _nickname;
 		std::string _phonenumber;
 		std::string _darkestsecret;
-		void _print_contact (void) const;
+		void _set_all_param(std::string s_name, std::string s_nom,
+				std::string s_nick, std::string s_phone, std::string s_dark);
 
 	public:
 		Contact( void );
 		~Contact( void );
-		int	compare(std::string name, std::string fname);
+		void copy(const Contact old_contact);
+		void print_contact (void) const;
+		void print_line (Contact contact) const;
 };
 
 #endif

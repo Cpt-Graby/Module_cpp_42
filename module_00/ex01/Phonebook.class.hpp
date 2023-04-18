@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 10:47:33 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/18 09:59:24 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/18 10:39:27 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 class PhoneBook {
 	private:
-		unsigned int number_contact;
+		unsigned int _number_of_contact;
 		Contact _book[8];
 		void	_add_contact_to_line(int index);
-		void	_get_number_contact(void);
+		int	_get_number_of_contact(void) const;
 
 	public:
 
