@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 11:32:18 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/18 16:49:57 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:20:45 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Contact {
 		void copy(const Contact old_contact);
 		void ask_param(void);
 		void print_contact (void) const;
-		void print_line (Contact contact) const;
+		void print_line_contact (int index) const;
 };
 
 #endif

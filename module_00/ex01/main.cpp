@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:22:31 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/18 09:55:35 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:10:47 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main (void)
 	{
 		std::cout << "Phonebook: ";
 		std::getline(std::cin, cmd_input);
+		if (std::cin.eof())
+			break ;
 		if (!cmd_input.compare("ADD"))
 			phonebook.add_contact();
 		if (!cmd_input.compare("SEARCH"))
