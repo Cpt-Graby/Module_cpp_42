@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 15:21:17 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/20 15:25:30 by agonelle         ###   ########.fr       */
+/*   Created: 2023/04/20 15:52:35 by agonelle          #+#    #+#             */
+/*   Updated: 2023/04/24 06:54:01 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAINA_HPP
-# define HUMAINA_HPP
+#include "HumanA.hpp"
+#include <iostream>
+#include <string>
 
-#include "Weapon.hpp"
+HumanA::HumanA(std::string init): name(init), &_weapon("fist") {
+	return;
+}
 
-class HumanA {
-	private:
-		std::string	name;
-		Weapon		&_weapon;
-	public:
-		HumanA(std::string name, Weapon &weapon);
-		~HumanA(void);
-		void attack(void) const;
-};
+HumanA::~HumanA(void){
+	return ;
+}
 
-#endif
-
+void HumanA::attack(void) const {
+	std::cout << this->name << "attacks with their";
+	std::cout << this->_weapon.getType() << std::endl;
+	return ;
+}

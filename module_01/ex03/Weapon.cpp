@@ -6,14 +6,14 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:10:04 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/20 15:30:15 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/24 06:49:46 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 #include <string>
 
-Weapon::Weapon(std::string init) : type(init) {
+Weapon::Weapon(std::string const & init) : type(init) {
 	return ;
 }
 
@@ -21,9 +21,8 @@ Weapon::~Weapon(void){
 	return ;
 }
 
-const std::string& Weapon::getType(void){
-	std::string& ref = this->type;
-	return (ref);
+std::string const & Weapon::getType(void) const {
+	return this->type;
 }
 
 void Weapon::setType(std::string type){

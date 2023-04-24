@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:58:55 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/20 15:30:02 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/24 06:49:02 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Weapon {
 	private:
 		std::string type;
 	public:
-		Weapon(std::string init);
+		Weapon(std::string const &init);
 		~Weapon(void);
-		const std::string& getType(void);
+		std::string const & getType(void) const;
 		void setType(std::string type);
 };
 
