@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:21:17 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/24 06:38:35 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/24 08:03:41 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class HumanB {
 	private:
 		std::string	_name;
-		Weapon		_weapon;
+		Weapon		*_weapon;
 	public:
-		HumanB(std::string name);
+		HumanB(std::string const & init);
 		~HumanB(void);
 		void attack(void) const;
-		void setWeapon(Weapon arme);
+		void setWeapon(Weapon &arme);
 };
 
 #endif

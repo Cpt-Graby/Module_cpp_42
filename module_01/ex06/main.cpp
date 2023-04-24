@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 15:52:35 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/24 08:05:09 by agonelle         ###   ########.fr       */
+/*   Created: 2023/04/24 11:58:31 by agonelle          #+#    #+#             */
+/*   Updated: 2023/04/24 13:22:41 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
-#include <iostream>
-#include <string>
+#include "Harl.hpp"
 
-HumanB::HumanB(std::string const & init): _name(init), _weapon(nullptr){
-	return;
-}
+int main(int argc, char **argv)
+{
+	Harl newHarl;
+	if (argc == 2)
+	{
+		newHarl.complain(argv[1]);
+	}
+	else 
+		std::cout << "Use " << argv[0] << "[level between 0 and 3]" << std::endl;
+	return (0);
 
-HumanB::~HumanB(void){
-	return ;
-}
-
-void HumanB::attack(void) const {
-	std::cout << this->_name << "attacks with their ";
-	std::cout << this->_weapon->getType() << std::endl;
-	return ;
-}
-
-void HumanB::setWeapon(Weapon &arme) {
-	this->_weapon = &arme;
-	return ;
 }

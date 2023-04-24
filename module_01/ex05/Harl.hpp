@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 15:52:35 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/24 08:05:09 by agonelle         ###   ########.fr       */
+/*   Created: 2023/04/24 11:00:36 by agonelle          #+#    #+#             */
+/*   Updated: 2023/04/24 12:06:59 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
+
 #include <iostream>
 #include <string>
 
-HumanB::HumanB(std::string const & init): _name(init), _weapon(nullptr){
-	return;
-}
+class Harl {
+	private:
+		void debug (void);
+		void info (void);
+		void warning (void);
+		void error (void);
+		void (Harl::*tab_fonc[4])(void);
+		std::string level[4];
 
-HumanB::~HumanB(void){
-	return ;
-}
+	public:
+		Harl(void);
+		~Harl(void);
+		void complain (std::string levelStr);
 
-void HumanB::attack(void) const {
-	std::cout << this->_name << "attacks with their ";
-	std::cout << this->_weapon->getType() << std::endl;
-	return ;
-}
+};
 
-void HumanB::setWeapon(Weapon &arme) {
-	this->_weapon = &arme;
-	return ;
-}
+#endif
