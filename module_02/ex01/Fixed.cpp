@@ -6,14 +6,25 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:36:49 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/26 12:58:42 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/27 10:38:15 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed(void) : _rawBits(0) {
 	std::cout << "Default constructor called " << std::endl;
+	return ;
+}
+
+Fixed::Fixed(int const n): _rawBits(n << this->_fractionBits) {
+	std::cout << "Int constructor called " << std::endl;
+	return ;
+}
+
+Fixed::Fixed(float const r) :_rawBits(roundf(r * (1 << this->_fractionBits))) {
+	std::cout << "Float constructor called " << std::endl;
 	return ;
 }
 
@@ -41,4 +52,16 @@ int Fixed::getRawBits(void) const {
 void Fixed::setRawBits(int const raw) {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_rawBits = raw;
+}
+
+int Fixed::toInt(void) const {
+	return (this->_rawBits >> this->_fractionBits);
+}
+
+float Fixed::toFloat(void) const {
+	return ((float)this->_rawBits / (float)(1 << this->_fractionBits));
+}
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs) {
+	o << rhs.toFloat();
+	return o;
 }
