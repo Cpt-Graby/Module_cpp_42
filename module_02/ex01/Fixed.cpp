@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:36:49 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/27 10:38:15 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:14:02 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ Fixed & Fixed::operator=(Fixed const & rhs) {
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_rawBits);
 }
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_rawBits = raw;
 }
 

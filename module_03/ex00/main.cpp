@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 13:30:45 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/27 12:33:57 by agonelle         ###   ########.fr       */
+/*   Created: 2023/04/27 16:37:28 by agonelle          #+#    #+#             */
+/*   Updated: 2023/04/27 16:51:55 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
 #include <iostream>
-#include "Fixed.hpp"
 
-int main(void) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+int main(){
+	// Test de la creation. 
+	ClapTrap First("Alexis");
+	// Test du nombre de HP
+	for (int i = 12; i > 0; i--) { 
+		First.takeDamage(1);
+	}
+
+	std::cout << "----------" << std::endl;
+	for (int i = 2; i > 0; i--) { 
+		First.attack("Le vide");
+	}
 	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
 
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+	std::cout << "----------" << std::endl;
+	ClapTrap Second("Julien");
+	for (int i = 12; i > 0; i--) { 
+		Second.attack("Le vide");
+	}
+	return (0);
 }

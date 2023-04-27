@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 13:30:45 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/27 12:33:57 by agonelle         ###   ########.fr       */
+/*   Created: 2023/04/27 14:19:39 by agonelle          #+#    #+#             */
+/*   Updated: 2023/04/27 14:24:52 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef POINT_HPP
+# define POINT_HPP
+
 #include "Fixed.hpp"
 
-int main(void) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
+class Point {
+	private:
+		Fixed _x;
+		Fixed _y;
+	public:
+		Point(void);
+		Point(float a, float b);
+		Point(Point const &old_point);
+		~Point(void);
 
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
-}
+
+#endif
