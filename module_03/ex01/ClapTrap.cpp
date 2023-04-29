@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:40:09 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/27 16:49:49 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/04/29 13:17:05 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(void){
+	std::cout << "Standard Creation of ClapTrap" << std::endl;
 	return ; 
 }
 
