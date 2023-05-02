@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:16:14 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/01 11:31:58 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/02 10:29:00 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,9 @@ void Animal::makeSound(void) const {
 std::string Animal::getType(void) const {
 	return (this->type);
 }
+
+Animal &Animal::operator=(Animal const &src){
+	if (this != &src)
+		this->type = src.type;
+	return (*this);
+	}

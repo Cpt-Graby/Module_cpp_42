@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:40:09 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/29 13:17:05 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:42:02 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(void){
-	std::cout << "Standard Creation of ClapTrap" << std::endl;
 	return ; 
 }
 
@@ -90,3 +89,11 @@ void ClapTrap::beRepaired(unsigned int amount){
 	}
 	return ;
 }
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &src) {
+	this->_name = src._name;
+	this->_hitPts = src._hitPts;
+	this->_energyPts = src._energyPts;
+	this->_attackDmg = src._attackDmg;
+	return (*this);
+};

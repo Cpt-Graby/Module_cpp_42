@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:03:03 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/01 11:37:47 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/02 10:25:41 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ class Animal {
 		Animal(void);
 		Animal(std::string type);
 		virtual ~Animal(void);
+
 		std::string getType() const;
 		virtual void makeSound(void) const;
+		Animal &operator=(Animal const &src);
 };
 
 #endif
