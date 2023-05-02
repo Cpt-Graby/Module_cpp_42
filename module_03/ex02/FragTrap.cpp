@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 02:14:05 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/30 02:37:32 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:01:05 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	this->_attackDmg = 30;
 }
 
-FragTrap::~FragTrap(void) {
-	std::cout << "FragTrap destructor called" << std::endl;
-}
-
 FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src) {
 	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
-FragTrap & FragTrap::operator=(FragTrap const & rhs) {
+FragTrap::~FragTrap(void) {
+	std::cout << "FragTrap destructor called" << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const & rhs) {
 	std::cout << "FragTrap assignation operator called" << std::endl;
 	if (this != &rhs)
 	{
@@ -43,7 +43,7 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs) {
 		this->_energyPts = rhs._energyPts;
 		this->_attackDmg = rhs._attackDmg;
 	}
-	return *this;
+	return (*this);
 }
 
 void FragTrap::highFivesGuys(void)

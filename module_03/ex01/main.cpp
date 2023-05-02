@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:37:28 by agonelle          #+#    #+#             */
-/*   Updated: 2023/04/29 16:33:10 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:57:54 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 #include <iostream>
 
 int main(){
+
 	ScavTrap First("Alexis");
+	ScavTrap Second(First);
 	// Test du nombre de HP
 	for (int i = 8; i > 0; i--) { 
-		First.takeDamage(10);
+		Second.takeDamage(10);
 	}
 	for (int i = 25; i > 0; i--) { 
-		First.attack("Le vide");
+		Second.attack("Le vide");
 	}
 	for (int i = 26; i > 0; i--) { 
-		First.beRepaired(1);
+		Second.beRepaired(1);
 	}
 	std::cout << "----------" << std::endl;
 	return (0);
