@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:19:29 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/02 13:24:14 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:45:31 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ class ClapTrap {
 		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+		std::string	get_name(void) const;
+		unsigned int get_HP(void) const;
+		unsigned int get_energy(void) const;
 
 		ClapTrap & operator=(ClapTrap const & rhs);
 
 };
+std::ostream & operator<<(std::ostream & o, ClapTrap const & rhs);
 #endif

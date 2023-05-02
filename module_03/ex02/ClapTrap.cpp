@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:40:09 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/02 23:51:39 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:46:58 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,3 +98,19 @@ void ClapTrap::beRepaired(unsigned int amount){
 	return ;
 }
 
+std::string ClapTrap::get_name(void) const {
+	return (this->_name);
+}
+
+unsigned int ClapTrap::get_HP(void) const {
+	return (this->_hitPts);
+}
+
+unsigned int ClapTrap::get_energy(void) const {
+	return (this->_energyPts);
+}
+
+std::ostream & operator<<(std::ostream & o, ClapTrap const & rhs) {
+	o << rhs.get_name()<< " with " << rhs.get_HP() << " HP and " << rhs.get_energy() << " energy points." << std::endl; 
+	return (o);
+}

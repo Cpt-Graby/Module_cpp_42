@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 02:14:05 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 00:56:30 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:01:05 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,4 @@ void FragTrap::attack(std::string const & target)
 		std::cout << " can't move." << std::endl;
 	}
 	return ;
-}
-
-std::ostream & operator<<(std::ostream & o, FragTrap const & rhs) {
-	o << rhs.get_name()<< " with " << rhs.get_HP() << " HP and " << rhs.get_energy() << " energy points." << std::endl; 
-	return (o);
 }
