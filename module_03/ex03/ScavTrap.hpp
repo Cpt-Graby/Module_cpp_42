@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:10:14 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 00:51:09 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:49:12 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 #include <iostream>
 
 class ScavTrap : public ClapTrap {
-	private:
+	protected:
 		ScavTrap(void);
+	private:
 		int	_gardianMode;
 	public: 
 		ScavTrap(std::string name);

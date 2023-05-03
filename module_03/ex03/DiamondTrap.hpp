@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:03:18 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 12:19:47 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:43:37 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ class DiamondTrap: public FragTrap, public ScavTrap {
 
 };
 
-std::ostream & operator<<(std::ostream &o, FragTrap const &rhs);
+std::ostream & operator<<(std::ostream &o, DiamondTrap const &rhs);
 
 #endif

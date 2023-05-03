@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:37:28 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 12:23:55 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:21:25 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 int main(){
 	DiamondTrap first("Alexis");
+	std::cout << first;
 	first.attack("le vide");
 	first.highFivesGuys();
 	first.guardGate();
 	first.whoAmI();
-	std::cout << first;
 	std::cout << "----------" << std::endl;
+	std::cout << first;
 	return (0);
 }
