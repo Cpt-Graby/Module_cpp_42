@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:03:03 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 01:07:03 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:26:33 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Animal {
 	protected:
 		std::string type;
-	public:
 		Animal(void);
+	public:
 		Animal(std::string type);
 		Animal(const Animal & src);
 

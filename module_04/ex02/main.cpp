@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:18:33 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 09:57:28 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:28:41 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int main()
 {
+	Animal* i = new Animal("Alexis");
 	Animal* meta[10];
 	for (int i=0; i<5; i++){
 		meta[i] = new Dog();
