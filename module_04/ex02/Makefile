@@ -1,8 +1,8 @@
-PRG = Animal
+PRG = AAnimal
 CC = c++
 CPPFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp AAnimal.cpp
 OBJ = $(SRC:.cpp=.o)
 
 %.o: %.cpp

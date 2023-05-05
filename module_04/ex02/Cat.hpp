@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:07:45 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 09:21:20 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:28:46 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	private:
 		Brain *_brain;
 	public:

@@ -6,11 +6,12 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:18:33 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 10:28:41 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:34:52 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -19,23 +20,18 @@
 
 int main()
 {
-	Animal* i = new Animal("Alexis");
-	Animal* meta[10];
-	for (int i=0; i<5; i++){
-		meta[i] = new Dog();
-		std::cout << "-----" << std::endl;
-	}
-	for (int i=5; i<10; i++){
-		meta[i] = new Cat();
-		std::cout << "-----" << std::endl;
-	}
-	for (int i = 0; i < 10; i++){
-		std::cout << "Animal " << i << " : ";
-		meta[i]->makeSound();
-	}
-	for (int i = 0; i < 10; i++){
-		delete meta[i];
-		std::cout << "-----" << std::endl;
-	}
+	/*
+	const AAnimal *meta = new AAnimal();
+	meta->makeSound();
+	delete meta;
+	*/
+	const AAnimal *i = new Cat();
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); 
+	delete i;
+	const AAnimal *j = new Dog();
+	std::cout << j->getType() << " " << std::endl;
+	j->makeSound(); 
+	delete j;
 	return (0);
 }

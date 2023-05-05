@@ -6,20 +6,20 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:14:10 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 09:20:59 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:28:38 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat(void) : Animal("Cat") {
+Cat::Cat(void) : AAnimal("Cat") {
 	std::cout << "Cat constructor called" << std::endl;
 	this->_brain = new Brain();
 	return ;
 }
 
-Cat::Cat(Cat const & src) : Animal(src) {
+Cat::Cat(Cat const & src) : AAnimal(src) {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->_brain = new Brain(*src._brain);
 	return ;

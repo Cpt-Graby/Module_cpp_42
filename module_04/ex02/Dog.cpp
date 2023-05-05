@@ -6,20 +6,20 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:11:13 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 09:23:16 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:29:38 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog(void): Animal("Dog"){
+Dog::Dog(void): AAnimal("Dog"){
 	std::cout << "Dog constructor called" << std::endl;
 	this->_brain = new Brain();
 	return ;
 }
 
-Dog::Dog(Dog const & src): Animal(src){
+Dog::Dog(Dog const & src): AAnimal(src){
 	std::cout << "Dog copy constructor called" << std::endl;
 	this->_brain = new Brain(*src._brain);
 	return ;
