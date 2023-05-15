@@ -6,7 +6,7 @@
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 08:54:05 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/03 09:31:16 by agonelle         ###   ########.fr       */
+/*   Updated: 2023/05/14 11:51:49 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ Brain::~Brain(void) {
 
 std::string Brain::getIdea(int i) const {
 	return this->ideas[i];
+}
+
+void Brain::setIdea(int i, std::string const idea) {
+	this->ideas[i] = idea;
 }
 
 Brain &Brain::operator=(Brain const & rhs) {

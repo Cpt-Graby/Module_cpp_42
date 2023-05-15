@@ -5,36 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agonelle <agonelle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 11:18:33 by agonelle          #+#    #+#             */
-/*   Updated: 2023/05/15 09:22:38 by agonelle         ###   ########.fr       */
+/*   Created: 2023/05/05 10:42:40 by agonelle          #+#    #+#             */
+/*   Updated: 2023/05/05 10:43:22 by agonelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include <iostream>
-
 int main()
 {
-	Animal* meta[10];
-	for (int i=0; i<5; i++){
-		meta[i] = new Dog();
-		std::cout << "-----" << std::endl;
-	}
-	for (int i=5; i<10; i++){
-		meta[i] = new Cat();
-		std::cout << "-----" << std::endl;
-	}
-	for (int i = 0; i < 10; i++){
-		std::cout << "Animal " << i << " : ";
-		meta[i]->makeSound();
-	}
-	for (int i = 0; i < 10; i++){
-		delete meta[i];
-		std::cout << "-----" << std::endl;
-	}
-	return (0);
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 }
+return 0;
