@@ -6,8 +6,8 @@
 
 class Bureaucrat {
 	private:
-		int _grade;
-		const std::string	_NAME;
+		int m_grade;
+		const std::string	M_NAME;
 		Bureaucrat(void);
 		Bureaucrat &operator=(const Bureaucrat &Bureaucrat);
 	public:
