@@ -5,7 +5,17 @@ Bureaucrat::Bureaucrat(){
 }
 
 Bureaucrat::Bureaucrat(int t_grade, const std::string T_NAME) :
-	M_NAME(T_NAME), m_grade(t_grade) {}
+	M_NAME(T_NAME) {
+		if (t_grade < 1) {
+			throw Bureaucrat::GradeTooLowException;
+		}
+		else if (t_grade > 150) {
+			throw Bureaucrat::GradeTooHighException;
+		}
+		else {
+			m_grade = t_grade;
+		}
+	}
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src):
 	M_NAME(src.M_NAME), m_grade(src.m_grade) {}
