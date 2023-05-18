@@ -60,6 +60,6 @@ std::ostream &operator<<(std::ostream &o, Form const &src) {
 	o << src.getName()
 		<< " need Grade:" << src.getGradeToSign()
 		<< " to be signed and Grade:" << src.getGradeToExec()
-		<< " to be executed." << std::endl;
+		<< " to be executed.";
 	return (o);
 }
