@@ -1,5 +1,6 @@
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form() : M_NAME("default"), M_GRADE_TO_SIGN(1), M_GRADE_TO_EXEC(1), m_signed(false) {}
 
@@ -54,8 +55,6 @@ void Form::beSigned(Bureaucrat const & t_Bureaucrat) {
 		this->m_signed = true;
 	}
 }
-
-
 
 std::ostream &operator<<(std::ostream &o, Form const &src) {
 	o << src.getName()
