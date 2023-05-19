@@ -1,6 +1,6 @@
 NAME = Bureaucrat
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98 -Wshadow 
+CFLAGS = -Wall -Wextra -Werror -pedantic -Wshadow -Wnon-virtual-dtor -std=c++98 
 SRC = main.cpp \
 	  Bureaucrat.cpp \
 	  Form.cpp \

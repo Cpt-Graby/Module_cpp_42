@@ -20,7 +20,7 @@ class Form {
 		virtual ~Form();
 		//Public methods
 		void beSigned(Bureaucrat const & t_Bureaucrat);
-		virtual void beExecute(Bureaucrat const & t_Bureaucrat) const;
+		virtual void beExecuted(Bureaucrat const & t_Bureaucrat) const;
 		// Getters
 		std::string getName() const;
 		int getGradeToSign() const;
@@ -36,6 +36,10 @@ class Form {
 	class GradeTooLowException : public std::exception {
 		public:
 			virtual const char* what() const throw() {return ("Grade too low");}
+	};
+	class NotSignedException : public std::exception {
+		public:
+			virtual const char* what() const throw() {return ("Form not signed");}
 	};
 };
 
