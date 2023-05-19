@@ -57,10 +57,6 @@ void Form::beSigned(Bureaucrat const & t_Bureaucrat) {
 }
 
 void Form::beExecuted(Bureaucrat const & t_Bureaucrat) const {
-	if (this->m_signed == false) {
-		throw Form::NotSignedException();
-		return ;
-	}
 	if (t_Bureaucrat.getGrade() > this->M_GRADE_TO_EXEC) {
 		throw Form::GradeTooLowException();
 		return ;

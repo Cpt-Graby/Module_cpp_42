@@ -5,21 +5,16 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main() {
-	Bureaucrat  b("Bureaucrat1", 1);
-	Bureaucrat  b150("Bureaucrat150", 150);
-	Form        *f = new ShrubberyCreationForm("home");
+	Bureaucrat  b3("Bureaucrat150", 3);
+	Form		*f = new ShrubberyCreationForm("Home");
+	Form		*f2 = new RobotomyRequestForm("Robot");
 
-	std::cout << b << std::endl;
-	std::cout << b150 << std::endl;
-	std::cout << *f << std::endl;
-	b.executeForm(*f);
-	std::cout << std::endl;
-	b150.signForm(*f);
-	b150.executeForm(*f);
-	b.signForm(*f);
-	b.executeForm(*f);
+	std::cout << b3 << std::endl;
+	b3.signForm(*f2);
+	b3.executeForm(*f2);
 	delete f;
 
 	return (0);

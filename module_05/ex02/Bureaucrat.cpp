@@ -62,6 +62,12 @@ void Bureaucrat::signForm(Form & t_form) const {
 }
 
 void Bureaucrat::executeForm(Form const & t_form) const {
+	if (!t_form.getSigned()) {
+		std::cout << this->M_NAME << " cannot execute "
+			<< "because " << t_form.getName()
+			<< " is not signed\n";
+		return ;
+	}
 	try{
 		t_form.beExecuted(*this);
 	}
@@ -71,7 +77,7 @@ void Bureaucrat::executeForm(Form const & t_form) const {
 			<< e.what() << std::endl;
 		return ;
 	}
-	std::cout << this->M_NAME << " executes " << t_form.getName() << std::endl;
+	std::cout << this->M_NAME << " has executed " << t_form.getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &Bureaucrat){

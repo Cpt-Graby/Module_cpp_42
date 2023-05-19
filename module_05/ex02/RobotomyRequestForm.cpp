@@ -1,5 +1,6 @@
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -34,7 +35,8 @@ void RobotomyRequestForm::beExecuted(Bureaucrat const & t_bureaucrat) const {
 	catch (std::exception & e) {
 		return;
 	}
-	std::cout << "Bzzzzz Bzzzzz Bzzzzz" << std::endl;
+	srand((unsigned) time(NULL));
+	std::cout << "Bzzzzz Bzzzzz Bzzzzz\n";
 	if (rand() % 2 == 0) {
 		std::cout << this->M_TARGET << " has been robotomized successfully" << std::endl;
 	}
