@@ -28,6 +28,9 @@ std::string ShrubberyCreationForm::getTarget() const {
 }
 
 void ShrubberyCreationForm::beExecuted(Bureaucrat const & t_bureaucrat) const {
+	if (!this->getSigned()) {
+		throw Form::FormNotSignedException();
+	}
 	try {
 		Form::beExecuted(t_bureaucrat);
 	}

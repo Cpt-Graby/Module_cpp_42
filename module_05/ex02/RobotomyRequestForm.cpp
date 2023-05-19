@@ -29,6 +29,9 @@ std::string RobotomyRequestForm::getTarget() const {
 }
 
 void RobotomyRequestForm::beExecuted(Bureaucrat const & t_bureaucrat) const {
+	if (!this->getSigned()) {
+		throw Form::FormNotSignedException();
+	}
 	try {
 		Form::beExecuted(t_bureaucrat);
 	}
