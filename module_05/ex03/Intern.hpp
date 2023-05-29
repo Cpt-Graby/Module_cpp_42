@@ -4,9 +4,14 @@
 #include "Form.hpp"
 #include <iostream>
 
+struct intermediateForm {
+	std::string nameForm;
+	Form *t_form;
+};
+
 class Intern {
 	private:
-		std::string m_formtable[4];
+		intermediateForm m_tab[4];
 	public:
 		Intern();
 		Intern(Intern const & src);

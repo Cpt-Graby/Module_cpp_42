@@ -1,11 +1,15 @@
 
 #include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern(){
-	m_formtable[0] = ("Shrubbery Creation request");
-	m_formtable[1] = ("Robotomy request");
-	m_formtable[2] = ("Presidential pardon request");
-	m_formtable[3] = ("");
+	
+	this->m_tab[0].nameForm = ("Shrubbery Creation request");
+	this->m_tab[1].nameForm = ("Robotomy request");
+	this->m_tab[2].nameForm = ("Presidential pardon request");
+	this->m_tab[3].nameForm = ("");
 }
 
 Intern::Intern(Intern const & src) {
@@ -18,17 +22,19 @@ Intern::~Intern() {
 Intern & Intern::operator=(Intern const & rhs) {
 	if (this != &rhs)
 		return *this;
+	return (*this);
 }
 
 Form * Intern::makeForm(std::string const formName, std::string const target) {
-	Form* ret;
-	for (int i = 0; i < 4, i++) {
-		if (m_formtable[i] == formName) {
+	int	ret = 3;
+	this->m_tab[0].t_form  = new ShrubberyCreationForm(target);
+	this->m_tab[1].t_form  = new RobotomyRequestForm(target);
+	this->m_tab[2].t_form  = new RobotomyRequestForm(target);
+	for (int i = 0; i < 3; i++) {
+		if (this->m_tab[i].nameForm== formName) {
 			std::cout << "Intern creates " << formName << std::endl;
-			ret = new Form(formName, 5, 156);
-			return (ret);
+			ret = i;
 		}
 	}
-	ret = new Form("test", 5 , 156);
 	return (ret);
 }
