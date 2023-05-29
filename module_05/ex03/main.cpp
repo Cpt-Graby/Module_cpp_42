@@ -7,19 +7,42 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main() {
-	Bureaucrat  b3("Bureaucrat3", 3);
-//	Form		*f = new ShrubberyCreationForm("Home");
-//	Form		*f2 = new RobotomyRequestForm("Robot");
-	Form		*f3 = new PresidentialPardonForm("President");
+int main()
+{
+  Intern someRandomIntern;
+  Form *randomForm;
+  try
+  {
+    randomForm = someRandomIntern.makeForm("Robotomy. request", "Alexis");
+  }
+  catch (std::exception &e)
+  {
+    std::cout << e.what() << std::endl;
+  }
+  randomForm = someRandomIntern.makeForm("Robotomy request", "Julien");
+  std::cout << *randomForm << std::endl;
 
-	std::cout << b3 << std::endl;
-	b3.executeForm(*f3);
-	std::cout << b3 << std::endl;
-	b3.signForm(*f3);
-	b3.executeForm(*f3);
-	delete f3;
+  Bureaucrat b("Bob", 1);
+  try
+  {
+    b.signForm(*randomForm);
+  }
+  catch (std::exception &e)
+  {
+    std::cout << e.what() << std::endl;
+  }
 
-	return (0);
+  try
+  {
+    b.executeForm(*randomForm);
+  }
+  catch (std::exception &e)
+  {
+    std::cout << e.what() << std::endl;
+  }
+
+  delete randomForm;
+  return 0;
 }

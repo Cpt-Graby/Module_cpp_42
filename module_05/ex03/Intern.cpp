@@ -5,11 +5,9 @@
 #include "PresidentialPardonForm.hpp"
 
 Intern::Intern(){
-	
-	this->m_tab[0].nameForm = ("Shrubbery Creation request");
-	this->m_tab[1].nameForm = ("Robotomy request");
-	this->m_tab[2].nameForm = ("Presidential pardon request");
-	this->m_tab[3].nameForm = ("");
+	this->m_tabName[0] = "Shrubbery Creation request";
+	this->m_tabName[1] = ("Robotomy request");
+	this->m_tabName[2] = ("Presidential pardon request");
 }
 
 Intern::Intern(Intern const & src) {
@@ -27,14 +25,24 @@ Intern & Intern::operator=(Intern const & rhs) {
 
 Form * Intern::makeForm(std::string const formName, std::string const target) {
 	int	ret = 3;
-	this->m_tab[0].t_form  = new ShrubberyCreationForm(target);
-	this->m_tab[1].t_form  = new RobotomyRequestForm(target);
-	this->m_tab[2].t_form  = new RobotomyRequestForm(target);
+	Form *t_form;
 	for (int i = 0; i < 3; i++) {
-		if (this->m_tab[i].nameForm== formName) {
-			std::cout << "Intern creates " << formName << std::endl;
+		if (this->m_tabName[i] == formName) {
 			ret = i;
 		}
 	}
-	return (ret);
+	switch (ret) {
+		case 0:
+			t_form = new ShrubberyCreationForm(target);
+			break;
+		case 1:
+			t_form = new RobotomyRequestForm(target);
+			break;
+		case 2:
+			t_form = new PresidentialPardonForm(target);
+			break;
+		default:
+			throw FormNotFoundException();
+	}
+	return (t_form);
 }

@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Intern
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -pedantic -Wshadow -Wnon-virtual-dtor -std=c++98 
 SRC = main.cpp \
