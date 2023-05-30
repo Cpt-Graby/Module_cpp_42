@@ -3,14 +3,16 @@ NAME = Conversion
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
+
 SRCS = main.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp Makefile
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-NAME: $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+NAME: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 
