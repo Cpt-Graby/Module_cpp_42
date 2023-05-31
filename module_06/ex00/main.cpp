@@ -1,16 +1,11 @@
 #include <iostream>
 
-void castChar(std::string arg)
-{
-	if (arg == "nan")
-		std::cout << "char: impossible\n" ;
-	
-	return ;
-}
-
+// We will use the fonction of std::stod
+// https://cplusplus.com/reference/string/stod/
 void function_cast(std::string arg)
 {
-	castChar(arg);
+	float value_str = stof(arg);
+
 	std::cout << "int: " << stoi(arg) << "\n";
 	std::cout << "float: " << stof(arg) << "f\n";
 	std::cout << "double: " << stod(arg) << "\n";
@@ -24,7 +19,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	argv++;
-	std::string arg_cast(*argv);
-	function_cast(arg_cast);
+	function_cast(*argv);
 	return (0);
 }
