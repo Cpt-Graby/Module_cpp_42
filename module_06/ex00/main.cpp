@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <sstream>
 
 // We will use the fonction of std::stod
 // https://cplusplus.com/reference/string/stod/
@@ -12,25 +13,23 @@ int	main(int argc, char **argv) {
 		return (0);
 	}
 	argv++;
+	std::string strArg(*argv);
 	
 	const std::string specialTerm[8] = {"-inff", "-inf", "inff", "inf",
 		"+inff", "+inf", "nanf", "nan"};
 	int	match = 7;
 
 	for (int i = 0; i < 6; i++) {
-		if (*argv == specialTerm[i])
+		if (strArg == specialTerm[i])
 			match = i;
 	}
-	std::string test (*argv);
 	if (match == 7 ) {
 		try {
-			std::string::size_type sz;
-			double doubleNumber = std::stod(*argv, &sz);
-			/*
-			std::cout << "test: " << doubleNumber << "\n";
-			*/
-			std::cout << "sz: " << test.substr(sz) << "\n";
-			functionCast(doubleNumber);
+			double doubleNumber;
+			std::istringstream iss(strArg);
+			if (iss > doubleNumber) {
+				functionCast(doubleNumber);
+			}
 		}
 		catch ( const std::invalid_argument& ia ) {
 			std::cerr << "Invalid argument: " << ia.what() << "\n";
