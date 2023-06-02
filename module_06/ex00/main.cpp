@@ -21,15 +21,15 @@ int	main(int argc, char **argv) {
 		if (*argv == specialTerm[i])
 			match = i;
 	}
+	std::string test (*argv);
 	if (match == 7 ) {
 		try {
 			std::string::size_type sz;
 			double doubleNumber = std::stod(*argv, &sz);
 			/*
 			std::cout << "test: " << doubleNumber << "\n";
-			std::cout << "test2: " << (doubleNumber - static_cast<int>(doubleNumber)) << "\n";
-			std::cout << "sz: " << sz << "\n";
 			*/
+			std::cout << "sz: " << test.substr(sz) << "\n";
 			functionCast(doubleNumber);
 		}
 		catch ( const std::invalid_argument& ia ) {
@@ -45,10 +45,10 @@ int	main(int argc, char **argv) {
 
 void functionCast(double dNumber) {
 	// ----------- case char
-	if ( dNumber >= std::numeric_limits<char>::lowest() &&  
+	if ( dNumber >= std::numeric_limits<char>::min() &&  
 			dNumber <= std::numeric_limits<char>::max()) {
 		char cNumber = static_cast<char>(dNumber);
-		if ( cNumber < 32 || cNumber > 127)
+		if ( cNumber < 32 || cNumber > 126)
 			std::cout << "char: Non displayable\n";
 		else
 			std::cout << "char: '" << cNumber << "'\n";
@@ -56,7 +56,7 @@ void functionCast(double dNumber) {
 	else
 		std::cout << "char: impossible \n";
 	// ----------- case int
-	if ( dNumber >= std::numeric_limits<int>::lowest() &&  
+	if ( dNumber >= std::numeric_limits<int>::min() &&  
 			dNumber <= std::numeric_limits<int>::max()) {
 		int iNumber = static_cast<char>(dNumber);
 		std::cout << "int: " << iNumber << "\n";
@@ -67,7 +67,7 @@ void functionCast(double dNumber) {
 	else
 		std::cout << "int: impossible \n";
 	// ----------- case float
-	if ( dNumber >= std::numeric_limits<float>::lowest() &&  
+	if ( dNumber >= std::numeric_limits<float>::min() &&  
 			dNumber <= std::numeric_limits<float>::max()) {
 		float fNumber = static_cast<float>(dNumber);
 		std::cout << "float: " << fNumber << "f\n";
