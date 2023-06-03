@@ -6,19 +6,6 @@
 
 static void printSpecialTerm(const int indexMatch);
 
-char checkSpecialTerm(std::string t_strArg){
-	const std::string specialTerm[8] = {"-inff", "-inf", "inff", "inf",
-		"+inff", "+inf", "nanf", "nan"};
-
-	for (int i = 0; i < 6; i++) {
-		if (t_strArg == specialTerm[i]) {
-			printSpecialTerm(i);
-			return (0);
-		}
-	}
-	return (1);
-}
-
 bool isValidInput(const std::string input) {
 	// conter les occurences des charatect +-.f
 	return (input.size() != 1 &&
@@ -37,18 +24,17 @@ bool isDouble(const std::string input) {
 	return (input.find_first_not_of("+-0123456789.") != std::string::npos);
 }
 
-void printFromInt(std::string input) {
-	int iNumber = std::atoi(input.c_str());
-	
-	if (iNumber >=32 || iNumber < 127)
-		std::cout << "char: " << static_cast<char>(iNumber) << "\n";
-	else
-		std::cout << "char: Non displayable\n";
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "int: " << iNumber << "\n";
-	std::cout << "float: " << static_cast<float>(iNumber) << "f\n";
-	std::cout << "double: " << static_cast<double>(iNumber) << std::endl;
-	return ;
+char checkSpecialTerm(std::string t_strArg){
+	const std::string specialTerm[8] = {"-inff", "-inf", "inff", "inf",
+		"+inff", "+inf", "nanf", "nan"};
+
+	for (int i = 0; i < 6; i++) {
+		if (t_strArg == specialTerm[i]) {
+			printSpecialTerm(i);
+			return (0);
+		}
+	}
+	return (1);
 }
 
 static void printSpecialTerm(const int indexMatch) {
@@ -77,4 +63,3 @@ static void printSpecialTerm(const int indexMatch) {
 	}
 	return ;
 }
-
