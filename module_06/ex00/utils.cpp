@@ -19,7 +19,9 @@ char checkSpecialTerm(std::string t_strArg){
 }
 
 bool isValidInput(const std::string input) {
-	return (input.size() != 1 && input.find_first_not_of("+-0123456789.f") != std::string::npos);
+	// conter les occurences des charatect +-.f
+	return (input.size() != 1 &&
+			input.find_first_not_of("+-0123456789.f") != std::string::npos);
 }
 
 bool isChar(const std::string input) {
