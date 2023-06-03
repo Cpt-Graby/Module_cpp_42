@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <limits>
 #include <sstream>
 #include <cstdlib>
@@ -34,6 +35,20 @@ bool isInt(const std::string input) {
 
 bool isDouble(const std::string input) {
 	return (input.find_first_not_of("+-0123456789.") != std::string::npos);
+}
+
+void printFromInt(std::string input) {
+	int iNumber = std::atoi(input.c_str());
+	
+	if (iNumber >=32 || iNumber < 127)
+		std::cout << "char: " << static_cast<char>(iNumber) << "\n";
+	else
+		std::cout << "char: Non displayable\n";
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "int: " << iNumber << "\n";
+	std::cout << "float: " << static_cast<float>(iNumber) << "f\n";
+	std::cout << "double: " << static_cast<double>(iNumber) << std::endl;
+	return ;
 }
 
 static void printSpecialTerm(const int indexMatch) {

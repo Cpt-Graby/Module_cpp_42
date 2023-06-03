@@ -12,6 +12,7 @@ bool isValidInput(const std::string input);
 bool isChar(const std::string input);
 bool isInt(const std::string input);
 bool isDouble(const std::string input);
+void printFromInt(std::string input);
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
@@ -26,9 +27,9 @@ int	main(int argc, char **argv) {
 		if (isValidInput(strArg)) 
 			throw std::invalid_argument("Erreur de format");
 		else if (!isChar(strArg))
-			std::cout << isChar(strArg) << "c\n";
+			std::cout << isChar(strArg) << "char\n";
 		else if (!isInt(strArg))
-			std::cout << isInt(strArg) << "i\n";
+			printFromInt(strArg);
 		else if (!isDouble(strArg))
 			std::cout << isDouble(strArg) << "d\n";
 		else
@@ -78,5 +79,3 @@ void functionCast(double dNumber) {
 	}
 	return ;
 }
-
-
