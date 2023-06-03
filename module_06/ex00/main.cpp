@@ -5,9 +5,13 @@
 
 // We will use the fonction of std::stod
 // https://cplusplus.com/reference/string/stod/
-char determineType(const std::string strArg);
-void printSpecialTerm(const int indexMatch);
 void functionCast(double dNumber);
+
+char checkSpecialTerm(std::string t_strArg);
+bool isValidInput(const std::string input);
+bool isChar(const std::string input);
+bool isInt(const std::string input);
+bool isDouble(const std::string input);
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
@@ -15,62 +19,26 @@ int	main(int argc, char **argv) {
 		return (0);
 	}
 	std::string strArg(argv[1]);
-	const std::string specialTerm[8] = {"-inff", "-inf", "inff", "inf",
-		"+inff", "+inf", "nanf", "nan"};
-	int	match = 7;
-
-	for (int i = 0; i < 6; i++) {
-		if (strArg == specialTerm[i])
-			match = i;
-	}
-	if (match != 7 ) {
-		printSpecialTerm(match);
+	if (!checkSpecialTerm(strArg))
 		return (0);
-	}
-
-	char argType = determineType(strArg);
-		std::cout << determineType(strArg) << "\n";
-	switch (argType) {
-		case ('c'):
-			char charValue = argv[1][0];
-			int intValue = static_cast<int>(charValue);
-			float floatValue = static_cast<float>(charValue);
-			double doubleValue = static_cast<double>(charValue);
-			break;
-		default:
-			return ;
-	}
 
 	try {
-		/*
-		char *endPtr;
-		double doubleValue = std::strtod(strArg.c_str(), &endPtr);	
-		if (*endPtr) {
-			throw std::invalid_argument("Il n'y a pas qu'un chiffre");
-		}
-		std::cout << doubleValue << "\n";
-		functionCast(doubleValue);
-		*/
+		if (isValidInput(strArg)) 
+			throw std::invalid_argument("Erreur de format");
+		else if (!isChar(strArg))
+			std::cout << isChar(strArg) << "c\n";
+		else if (!isInt(strArg))
+			std::cout << isInt(strArg) << "i\n";
+		else if (!isDouble(strArg))
+			std::cout << isDouble(strArg) << "d\n";
+		else
+			std::cout << "its a float \n";
 	}
 	catch ( const std::invalid_argument& ia ) {
 		std::cerr << "Invalid argument: " << ia.what() << "\n";
 		return (1);
-	}
+		}
 	return (0);
-}
-
-char determineType(const std::string strArg) {
-	size_t lengthStr = strArg.size();
-	if (lengthStr == 1) 
-		return ('c');
-	if (strArg.find_first_not_of("+-0123456789.f") != std::string::npos)
-		return ('e');
-	else if (strArg.find_first_not_of("+-0123456789.") != std::string::npos)
-		return ('f');
-	else if (strArg.find_first_not_of("+-0123456789") != std::string::npos)
-		return ('d');
-	else
-		return ('i');
 }
 
 void functionCast(double dNumber) {
@@ -111,30 +79,4 @@ void functionCast(double dNumber) {
 	return ;
 }
 
-void printSpecialTerm(const int indexMatch) {
-	std::cout << "char: impossible\n" ;
-	std::cout << "int: impossible\n" ;
-	switch (indexMatch) {
-		case (0): 
-		case (1): 
-			std::cout << "float: " << -std::numeric_limits<float>::infinity() << "f\n";
-			std::cout << "double: " << -std::numeric_limits<double>::infinity() << "\n";
-			break;
-		case (2): 
-		case (3): 
-		case (4): 
-		case (5): 
-			std::cout << "float: " << std::numeric_limits<float>::infinity() << "f\n";
-			std::cout << "double: " << std::numeric_limits<double>::infinity() << "\n";
-			break;
-		case (6): 
-		case (7): 
-			std::cout << "float: " << std::numeric_limits<float>::quiet_NaN() << "f\n";
-			std::cout << "double: " << std::numeric_limits<double>::quiet_NaN() << "\n";
-			break;
-		default:
-			return ;
-	}
-	return ;
-}
 
