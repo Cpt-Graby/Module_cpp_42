@@ -7,7 +7,15 @@
 static void printSpecialTerm(const int indexMatch);
 
 bool isValidInput(const std::string input) {
-	// conter les occurences des charatect +-.f
+	size_t pos = input.find_last_of("+-");
+	if ( pos != std::string::npos && pos != 0)
+		return (1);
+	pos = input.find_first_of("f");
+	if ( pos != input.find_last_of("f"))
+		return (1);
+	pos = input.find_first_of(".");
+	if ( pos != input.find_last_of("."))
+		return (1);
 	return (input.size() != 1 &&
 			input.find_first_not_of("+-0123456789.f") != std::string::npos);
 }

@@ -1,13 +1,15 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
+#include <climits>
 #include <sstream>
 #include <cstdlib>
+#include <cfloat>
 
 void printFromInt(std::string input) {
 	int iNumber = std::atoi(input.c_str());
 
-	if (iNumber >=32 || iNumber < 127)
+	if (iNumber >=32 && iNumber < 127)
 		std::cout << "char: " << static_cast<char>(iNumber) << "\n";
 	else if (iNumber < 32 && iNumber >= 0)
 		std::cout << "char: Non displayable\n";
@@ -33,7 +35,10 @@ void printFromChar(std::string input) {
 
 
 void printFromFloat(std::string input) {
-	float fNumber = static_cast<float>(std::atof(input.c_str()));
+//	float fNumber = static_cast<float>(std::atof(input.c_str()));
+	std::stringstream ss(input);
+	float fNumber; 
+	ss >> fNumber;
 	// ----------- case char
 	if ( fNumber >= std::numeric_limits<char>::min() &&  
 			fNumber <= std::numeric_limits<char>::max()) {
@@ -47,14 +52,13 @@ void printFromFloat(std::string input) {
 		std::cout << "char: impossible \n";
 	// ----------- case int
 	if ( fNumber >= std::numeric_limits<int>::min() &&
-			fNumber <= std::numeric_limits<int>::max())
-	{
-		int iNumber = static_cast<char>(fNumber);
-		std::cout << "int: " << iNumber << "\n";
+			fNumber <= (std::numeric_limits<int>::max())) {
+		std::cout << "int: " << static_cast<int>(fNumber) << "\n";
 	}
 	else
 		std::cout << "int: impossible \n";
 	// ----------- case float
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << fNumber << "f\n";
 	std::cout << "double: " << static_cast<double>(fNumber) << "\n";
 	return ;
@@ -62,6 +66,7 @@ void printFromFloat(std::string input) {
 
 void printFromDouble(std::string input) {
 	double dNumber = std::atof(input.c_str());
+	std::cout << std::fixed << std::setprecision(1);
 	// ----------- case char
 	if ( dNumber >= std::numeric_limits<char>::min() &&  
 			dNumber <= std::numeric_limits<char>::max()) {
