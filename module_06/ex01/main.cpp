@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 struct Data {
 	uintptr_t value;
@@ -19,7 +19,7 @@ int main() {
 	std::cout << serial_data << " is the serial_data\n";
 
 	Data *ptr_new_data = deserialize(serial_data);
-	std::cout << ptr_new_data->value << " is the serial_data\n";
+	std::cout << ptr_new_data->value << " is the new data\n";
 
 	return (0);
 }
