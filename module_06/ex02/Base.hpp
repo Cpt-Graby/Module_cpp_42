@@ -13,21 +13,21 @@ class Base {
 		Base(std::string t_type): m_type(t_type);
 		void printType() {std::out << m_type << std::endl;}
 		virtual ~Base();
-}
+};
 
 class A : Base("A") {
 	public:
 	~A();
-}
+};
 
 class B : Base("B") {
 	public:
 	~B();
-}
+};
 
 class C : Base("C") {
 	public:
 	~C();
-}
+};
 
 #endif
