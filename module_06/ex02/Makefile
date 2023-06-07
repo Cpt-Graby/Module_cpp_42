@@ -1,4 +1,4 @@
-NAME = Conversion
+NAME = Ex02Exec
 
 CC = c++
 

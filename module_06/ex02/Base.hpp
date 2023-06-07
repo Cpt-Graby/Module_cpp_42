@@ -2,32 +2,22 @@
 #ifndef BASE_HPP
 # define BASE_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
-class Base {
-	protected:
-		std::string m_type;
+class Base
+{
 	public:
-		Base(): m_type("Base");
-		Base(std::string t_type): m_type(t_type);
-		void printType() {std::out << m_type << std::endl;}
-		virtual ~Base();
+		virtual ~Base() {}
 };
 
-class A : Base("A") {
-	public:
-	~A();
+class A : public Base {
 };
 
-class B : Base("B") {
-	public:
-	~B();
+class B : public Base {
 };
 
-class C : Base("C") {
-	public:
-	~C();
+class C : public Base {
 };
 
 #endif
