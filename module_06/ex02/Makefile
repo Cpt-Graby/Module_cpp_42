@@ -1,12 +1,10 @@
-NAME = Conversion
+NAME = Ex02Exec
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 
-SRCS = main.cpp \
-	   utils.cpp \
-	   printFrom.cpp
+SRCS = main.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
