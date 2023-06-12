@@ -7,10 +7,10 @@ template <typename T>
 class Array {
 	private:
 		const unsigned int M_SIZEARRAY;
-		T &tab;
+		T * tabPointer;
 	public:
 		Array();
-//		Array(unsigned int n);
+		Array(unsigned int n);
 //		Array(Array const & src);
 //		Array & operator=(Array const & rhs);
 //		Array & operator[](void);
@@ -22,5 +22,4 @@ class Array {
 template <typename T>
 std::ostream & operator<<(std::ostream &o, Array<T> const & v);
 
-#include "Array.tpp"
 #endif
