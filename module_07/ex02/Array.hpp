@@ -11,11 +11,11 @@ class Array {
 	public:
 		Array();
 		Array(unsigned int n);
-//		Array(Array const & src);
-//		Array & operator=(Array const & rhs);
-//		Array & operator[](void);
+		Array(Array const & src);
+		Array & operator=(Array const & rhs);
+		T & operator[](const unsigned int i);
 		~Array();
-//		unsigned int size(void) const;
+		unsigned int size(void) const;
 
 };
 
