@@ -6,7 +6,7 @@
 template <typename T>
 class Array {
 	private:
-		const unsigned int M_SIZEARRAY;
+		unsigned int m_sizearray;
 		T * tabPointer;
 	public:
 		Array();
@@ -19,7 +19,11 @@ class Array {
 
 };
 
+/*
 template <typename T>
 std::ostream & operator<<(std::ostream &o, Array<T> const & v);
+*/
+
+#include "Array.tpp"
 
 #endif

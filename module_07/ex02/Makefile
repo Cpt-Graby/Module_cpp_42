@@ -2,8 +2,7 @@ NAME = EXEC
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp \
-	   Array.tpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
