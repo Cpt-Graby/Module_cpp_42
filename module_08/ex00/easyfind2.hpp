@@ -1,6 +1,7 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+<<<<<<< HEAD
 #include <ostream>
 
 class NotFoundException : public std::exception {
@@ -16,3 +17,8 @@ int easyfind (T &container, int i) {
 }
 
 #endif
+=======
+//template<typename T, typename U>
+
+#endif 
+>>>>>>> refs/remotes/origin/main
