@@ -1,8 +1,7 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-<<<<<<< HEAD
-#include <ostream>
+#include <algorithm>
 
 class NotFoundException : public std::exception {
 	const char *what() const throw() { return ("Value not found"); }
@@ -17,8 +16,3 @@ int easyfind (T &container, int i) {
 }
 
 #endif
-=======
-//template<typename T, typename U>
-
-#endif 
->>>>>>> refs/remotes/origin/main
