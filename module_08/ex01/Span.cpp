@@ -12,15 +12,33 @@ Span::Span(unsigned int N): m_qtyElement(0){
 
 Span::~Span() {}
 
+Span::Span(const Span & rhs) {
+	if (this != &rhs) {
+		this->m_qtyElement = rhs.getQtyElement();
+		this->m_maxSize = rhs.getQtyElement();
+	}
+}
+
+unsigned int Span::getMaxSize() const {
+	return (m_maxSize);
+}
+
+unsigned int Span::getQtyElement() const {
+	return (m_tab.size());
+}
+
 void Span::addNumber(int i) {
 	if (m_qtyElement >= m_maxSize)
 		throw NoRoomLeftExcept();
 	m_tab.push_back(i);
 	m_qtyElement++;
+	if (m_qtyElement != m_tab.size()) {
+		std::cout << "Il y a eu une errer d'implementation\n";
+		m_qtyElement = m_tab.size();
+	}
 }
 
-unsigned int Span::longestSpan() {
-	m_qtyElement = m_tab.size();
+unsigned int Span::longestSpan() const{
 	if (m_qtyElement < 2)
 		throw NoDistanceExcept();
 	int max = *std::max_element(m_tab.begin(), m_tab.end());
@@ -28,8 +46,7 @@ unsigned int Span::longestSpan() {
 	return (max - min);
 }
 
-unsigned int Span::shortestSpan() {
-	m_qtyElement = m_tab.size();
+unsigned int Span::shortestSpan() const{
 	if (m_qtyElement < 2)
 		throw NoDistanceExcept();
 	unsigned int min = this->longestSpan();

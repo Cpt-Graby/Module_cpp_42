@@ -16,8 +16,11 @@ class Span {
 		~Span();
 		Span(const Span & rhs);
 		void addNumber(int i);
-		unsigned int shortestSpan();
-		unsigned int longestSpan();
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
+		unsigned int getMaxSize() const;
+		unsigned int getQtyElement() const;
+		std::vector<int> &getVector();
 
 		class NoRoomLeftExcept : public std::exception {
 			virtual const char *what() const throw() {
