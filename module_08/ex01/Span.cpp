@@ -10,21 +10,25 @@ Span::Span(unsigned int N): m_qtyElement(0){
 	}
 }
 
+Span::Span() {}
+
 Span::~Span() {}
 
 Span::Span(const Span & rhs) {
 	if (this != &rhs) {
-		this->m_qtyElement = rhs.getQtyElement();
-		this->m_maxSize = rhs.getQtyElement();
+		this->m_qtyElement = rhs.m_qtyElement;
+		this->m_maxSize = rhs.m_maxSize;
+		this->m_tab = rhs.m_tab;
 	}
 }
 
-unsigned int Span::getMaxSize() const {
-	return (m_maxSize);
-}
-
-unsigned int Span::getQtyElement() const {
-	return (m_tab.size());
+Span & Span::operator=(Span const &rhs) {
+	if (this != &rhs) {
+		this->m_qtyElement = rhs.m_qtyElement;
+		this->m_maxSize = rhs.m_maxSize;
+		this->m_tab = rhs.m_tab;
+	}
+	return *this;
 }
 
 void Span::addNumber(int i) {
@@ -63,4 +67,12 @@ unsigned int Span::shortestSpan() const{
 		}
 	}
 	return (min);
+}
+
+unsigned int Span::getQtyElement() const{
+	return (m_qtyElement);
+}
+
+unsigned int Span::getMaxSize() const{
+	return (m_maxSize);
 }

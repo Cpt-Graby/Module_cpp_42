@@ -13,24 +13,24 @@ class Span {
 		std::vector<int> m_tab;
 	public:
 		Span(unsigned int N);
-		~Span();
 		Span(const Span & rhs);
+		Span& operator=(const Span &rhs);
+		~Span();
 		void addNumber(int i);
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
-		unsigned int getMaxSize() const;
 		unsigned int getQtyElement() const;
-		std::vector<int> &getVector();
+		unsigned int getMaxSize() const;
 
 		class NoRoomLeftExcept : public std::exception {
 			virtual const char *what() const throw() {
-				return ("Array full");
+				return ("Array full\n");
 			};
 		};
 
 		class NoDistanceExcept : public std::exception {
 			virtual const char *what() const throw() {
-				return ("Not enough element");
+				return ("Not enough element\n");
 			};
 		};
 };
