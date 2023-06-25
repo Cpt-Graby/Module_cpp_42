@@ -19,4 +19,6 @@ class MutantStack : public std::stack<T, Container>{
 		iterator end();
 };
 
+#include "MutantStack.tpp"
+
 #endif
