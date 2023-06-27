@@ -1,29 +1,64 @@
 #include "Bitcoinexchange.hpp"
 
-bool firstCheck(std::string const &Input, char c) {
-	std::size_t foundOne = Input.find_first_of(c);
-	std::size_t foundSecond = Input.find_last_of(c);
-	if (foundOne != foundSecond || foundOne == std::string::npos)
-		return (false);
-	return (true);
-}
-
 BitCoinExchange::BitCoinExchange() {}
 
 BitCoinExchange::~BitCoinExchange() {}
 
 BitCoinExchange::BitCoinExchange(const std::string &dataPath) {
-	std::fstream file(dataPath);
+	std::fstream file(dataPath.c_str());
+	std::string line;
+	std::size_t found;
+	std::string date;
+	std::string value;
+	double rate;
 	if (file.is_open()) {
-		std::string line;
 		getline(file, line);
 		while (getline(file, line)) {
-			std::cout << line << "\n";
-			if (firstCheck(line, ',') == false) {
-				std::cerr << "Not the right format\n";
+			// Checking for error
+			found = line.find(',');
+			if (found == std::string::npos) {
+				std::cerr << "Not the right format:";
+				std::cerr << line << "\n";
 				continue ;
 			}
+			// Creating the main two part
+			date = line.substr(0, found);
+			value = line.substr(found + 1);
+			// Checking for error
+			found = value.find(',');
+			if (found != std::string::npos) {
+				std::cerr << "Not the right format:";
+				std::cerr << line << "\n";
+				continue ;
+			}
+			std::stringstream(value) >> rate;
+			m_csvData[date] = rate;
 		}
 		file.close();
 	}
+}
+
+void BitCoinExchange::inputProcess(const std::string &pathFile){
+	std::fstream file(pathFile.c_str());
+	std::string line;
+	std::string date;
+	std::string value;
+	if (file.is_open()) {
+		while (getline(file, line)) {
+			if (line == "date | value") 
+				continue;
+			if (line.size() <= 13) {
+		//		std::cout << "Error: bad input => " << line << "\n";
+				continue ;
+			}
+			else if  (line.substr(10, 3) != " | ") {
+				std::cout << "Error: bad input => " << line << "\n";
+				continue ;
+			}
+			
+		}
+	}
+	else
+		std::cerr << "Error: could not open file.\n";
+	return ;
 }

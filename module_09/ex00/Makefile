@@ -6,7 +6,8 @@ CC = c++
 
 RM = rm -rf
 
-SRCS = main.cpp
+SRCS = main.cpp \
+	   Bitcoinexchange.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

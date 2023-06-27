@@ -3,19 +3,20 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <map>
 
 class BitCoinExchange {
 	private:
 	BitCoinExchange();
-	void inputProcess(const std::string &inputPath);
-	std::map<std::string, int> m_csvData;
+	BitCoinExchange &operator=(const BitCoinExchange &rhs);
+	BitCoinExchange(const BitCoinExchange &rhs);
+	std::map<std::string, double> m_csvData;
 	public:
 	BitCoinExchange(const std::string &dataPath);
-	BitCoinExchange(const BitCoinExchange &rhs);
-	BitCoinExchange &operator=(const BitCoinExchange &rhs);
 	~BitCoinExchange();
+	void inputProcess(const std::string &inputPath);
 
 };
 #endif
