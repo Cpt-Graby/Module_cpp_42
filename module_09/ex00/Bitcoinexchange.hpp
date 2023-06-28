@@ -15,6 +15,9 @@ class BitCoinExchange {
 		BitCoinExchange &operator=(const BitCoinExchange &rhs);
 		BitCoinExchange(const BitCoinExchange &rhs);
 		bool firstCheck(const std::string &inputLine);
+		bool checkDate(const std::string &dateStr);
+		bool checkValue(const std::string &valueStr);
+		void printExchangeRate(const std::string &key, float value);
 	public:
 		BitCoinExchange(const std::string &dataPath);
 		~BitCoinExchange();
