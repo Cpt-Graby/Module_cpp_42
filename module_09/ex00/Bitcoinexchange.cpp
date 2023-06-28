@@ -40,23 +40,33 @@ BitCoinExchange::BitCoinExchange(const std::string &dataPath) {
 
 void BitCoinExchange::inputProcess(const std::string &pathFile){
 	std::fstream file(pathFile.c_str());
-	std::string line;
-	std::string date;
-	std::string value;
+	std::string line, date, value;
 	if (file.is_open()) {
+		getline(file, line);
+		if (line != "date | value") {
+			std::cout << "Error: Bad first line input => " << line << "\n";
+			return ;
+		}
 		while (getline(file, line)) {
-			if (line == "date | value") 
-				continue;
 			if (line.size() <= 13) {
-		//		std::cout << "Error: bad input => " << line << "\n";
-				continue ;
-			}
-			else if  (line.substr(10, 3) != " | ") {
 				std::cout << "Error: bad input => " << line << "\n";
 				continue ;
 			}
-			
+			else if (std::count(line.begin(), line.end(), ' ') != 2
+				|| (std::count(line.begin(), line.end(), '|') != 1)) {
+				std::cout << "Error: bad input => " << line << "\n";
+				continue ;
+			}
+			else if  (line.substr(10, 3) != " | ") {
+				std::cout << "Error: Separation data => " << line << "\n";
+				continue ;
+			}
+			else if (line.find_first_not_of("123456789- !") != std::string::npos) {
+				std::cout << "Error: Invalid Character =>" << line << "\n";
+				continue ;
+			}
 		}
+		file.close();
 	}
 	else
 		std::cerr << "Error: could not open file.\n";
