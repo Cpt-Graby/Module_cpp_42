@@ -37,7 +37,27 @@ BitCoinExchange::BitCoinExchange(const std::string &dataPath) {
 		file.close();
 	}
 }
-bool BitCoinExchange::firstCheck(const std::string &line) {
+
+bool BitCoinExchange::firstCheck(const std::string &inputLine) {
+	if (inputLine.size() <= 13) {
+		std::cout << "Error: bad input => " << inputLine << "\n";
+		return (false);
+	}
+	else if (std::count(inputLine.begin(), inputLine.end(), ' ') != 2
+		|| (std::count(inputLine.begin(), inputLine.end(), '|') != 1)) {
+		std::cout << "Error: bad input => " << inputLine << "\n";
+		return (false);
+	}
+	else if  (inputLine.substr(10, 3) != " | ") {
+		std::cout << "Error: Separation data => " << inputLine << "\n";
+		return (false);
+	}
+	else if (inputLine.find_first_not_of("0123456789- !") != std::string::npos) {
+		std::cout << "Error: Invalid Character =>" << inputLine << "\n";
+		return (false);
+	}
+	else
+		return (true);
 }
 
 void BitCoinExchange::inputProcess(const std::string &pathFile){
@@ -50,23 +70,12 @@ void BitCoinExchange::inputProcess(const std::string &pathFile){
 			return ;
 		}
 		while (getline(file, line)) {
-			if (line.size() <= 13) {
-				std::cout << "Error: bad input => " << line << "\n";
-				continue ;
-			}
-			else if (std::count(line.begin(), line.end(), ' ') != 2
-				|| (std::count(line.begin(), line.end(), '|') != 1)) {
-				std::cout << "Error: bad input => " << line << "\n";
-				continue ;
-			}
-			else if  (line.substr(10, 3) != " | ") {
-				std::cout << "Error: Separation data => " << line << "\n";
-				continue ;
-			}
-			else if (line.find_first_not_of("123456789- !") != std::string::npos) {
-				std::cout << "Error: Invalid Character =>" << line << "\n";
-				continue ;
-			}
+			if (this->firstCheck(line) == false)
+				continue;
+			date = line.substr(0,10);
+			value = line.substr(10, 10 - line.size());
+			std::cout << "date:" << date << "\n";
+			std::cout << "value:" << value << "\n";
 		}
 		file.close();
 	}
