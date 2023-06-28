@@ -6,11 +6,10 @@
 #include <cstdlib>
 #include <cfloat>
 
-void printFromInt(std::string input) {
+void printFromInt(std::string &input) {
 	int iNumber = std::atoi(input.c_str());
-
 	if (iNumber >=32 && iNumber < 127)
-		std::cout << "char: " << static_cast<char>(iNumber) << "\n";
+		std::cout << "char: '" << static_cast<char>(iNumber) << "'\n";
 	else if (iNumber < 32 && iNumber >= 0)
 		std::cout << "char: Non displayable\n";
 	else
@@ -22,11 +21,11 @@ void printFromInt(std::string input) {
 	return ;
 }
 
-void printFromChar(std::string input) {
+void printFromChar(std::string &input) {
 	char cNumber = input[0];
 	
 	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "char: " << cNumber << "\n";
+	std::cout << "char: '" << cNumber << "'\n";
 	std::cout << "int: " << static_cast<int>(cNumber) << "\n";
 	std::cout << "float: " << static_cast<float>(cNumber) << "f\n";
 	std::cout << "double: " << static_cast<double>(cNumber) << std::endl;
@@ -34,11 +33,12 @@ void printFromChar(std::string input) {
 }
 
 
-void printFromFloat(std::string input) {
+void printFromFloat(std::string &input) {
 //	float fNumber = static_cast<float>(std::atof(input.c_str()));
-	std::stringstream ss(input);
+	std::stringstream ss(input.substr(0, input.size() - 1));
 	float fNumber; 
 	ss >> fNumber;
+	std::cout << std::fixed << std::setprecision(1);
 	// ----------- case char
 	if ( fNumber >= std::numeric_limits<char>::min() &&  
 			fNumber <= std::numeric_limits<char>::max()) {
@@ -51,7 +51,7 @@ void printFromFloat(std::string input) {
 	else
 		std::cout << "char: impossible \n";
 	// ----------- case int
-	if ( fNumber >= std::numeric_limits<int>::min() &&
+	if (fNumber >= std::numeric_limits<int>::min() &&
 			fNumber <= (std::numeric_limits<int>::max())) {
 		std::cout << "int: " << static_cast<int>(fNumber) << "\n";
 	}
@@ -64,8 +64,21 @@ void printFromFloat(std::string input) {
 	return ;
 }
 
-void printFromDouble(std::string input) {
-	double dNumber = std::atof(input.c_str());
+double sendDouble(std::string &input)
+{
+	try {
+		double dNumber; 
+		std::stringstream(input) >> dNumber;
+		return (dNumber);
+	}
+	catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+		exit(1);
+	}
+}
+
+void printFromDouble(std::string &input) {
+	double dNumber(sendDouble(input));
 	std::cout << std::fixed << std::setprecision(1);
 	// ----------- case char
 	if ( dNumber >= std::numeric_limits<char>::min() &&  
@@ -86,13 +99,14 @@ void printFromDouble(std::string input) {
 	else
 		std::cout << "int: impossible \n";
 	// ----------- case float
-	if ( dNumber >= std::numeric_limits<float>::min() &&  
+	if ( dNumber >= -FLT_MAX &&  
 			dNumber <= std::numeric_limits<float>::max()) {
 		float fNumber = static_cast<float>(dNumber);
 		std::cout << "float: " << fNumber << "f\n";
 	}
-	else 
+	else {
 		std::cout << "float: impossible \n";
+	}
 	std::cout << "double: " << dNumber << "\n";
 	return ;
 }

@@ -14,6 +14,7 @@ class BitCoinExchange {
 	BitCoinExchange &operator=(const BitCoinExchange &rhs);
 	BitCoinExchange(const BitCoinExchange &rhs);
 	std::map<std::string, double> m_csvData;
+	bool firstCheck(const std::string &inputLine);
 	public:
 	BitCoinExchange(const std::string &dataPath);
 	~BitCoinExchange();

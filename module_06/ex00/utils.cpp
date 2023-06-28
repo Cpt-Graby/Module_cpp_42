@@ -6,7 +6,7 @@
 
 static void printSpecialTerm(const int indexMatch);
 
-bool isValidInput(const std::string input) {
+bool isValidInput(const std::string &input) {
 	size_t pos = input.find_last_of("+-");
 	if ( pos != std::string::npos && pos != 0)
 		return (1);
@@ -17,22 +17,29 @@ bool isValidInput(const std::string input) {
 	if ( pos != input.find_last_of("."))
 		return (1);
 	return (input.size() != 1 &&
-			input.find_first_not_of("+-0123456789.f") != std::string::npos);
+			input.find_first_not_of("+-0123456789.f'") != std::string::npos);
 }
 
-bool isChar(const std::string input) {
-	return (input.size() != 1);
+bool isChar(const std::string &input) {
+	return (input.size() == 1); 
 }
 
-bool isInt(const std::string input) {
-	return (input.find_first_not_of("+-0123456789") != std::string::npos);
+bool isInt(const std::string &input) {
+	if (input.find("-") == 0 && input.compare("-2147483648") > 0) {
+		return (true);
+	}
+	else if (input.compare("2147483647") > 0) {
+		return (true);
+	}
+	else
+		return (input.find_first_not_of("+-0123456789") != std::string::npos);
 }
 
-bool isDouble(const std::string input) {
+bool isDouble(const std::string &input) {
 	return (input.find_first_not_of("+-0123456789.") != std::string::npos);
 }
 
-char checkSpecialTerm(std::string t_strArg){
+char checkSpecialTerm(std::string &t_strArg){
 	const std::string specialTerm[8] = {"-inff", "-inf", "inff", "inf",
 		"+inff", "+inf", "nanf", "nan"};
 

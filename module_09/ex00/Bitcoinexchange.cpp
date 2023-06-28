@@ -37,6 +37,8 @@ BitCoinExchange::BitCoinExchange(const std::string &dataPath) {
 		file.close();
 	}
 }
+bool BitCoinExchange::firstCheck(const std::string &line) {
+}
 
 void BitCoinExchange::inputProcess(const std::string &pathFile){
 	std::fstream file(pathFile.c_str());
