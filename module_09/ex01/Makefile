@@ -6,7 +6,8 @@ CC = c++
 
 RM = rm -rf
 
-SRCS = main.cpp 
+SRCS = main.cpp  \
+	   RPN.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
