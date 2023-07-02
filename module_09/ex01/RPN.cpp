@@ -1,7 +1,9 @@
 #include "RPN.hpp"
 
-RPN::RPN() {}
-
+RPN::RPN() {
+	std::cout << "Basic constructeur\n";
+	return ;
+}
 RPN::~RPN() {}
 
 RPN::RPN(const RPN & rhs) {
@@ -16,12 +18,23 @@ RPN & RPN::operator=(const RPN & rhs){
 }
 
 RPN::RPN(const std::string &initStr) {
-	std::size_t found(initStr.find_first_not_of("0123456789 +-/*"));
-	if (found != std::string::npos)
+	if (checkInput(initStr) == false)
 		throw std::invalid_argument("Bad input");
 	std::stringstream ss(initStr);
 	while (ss) {
 		m_stackNum.push(ss.str());
 	}
-	for (;:`
+}
+
+bool RPN::checkInput(const std::string &initStr){
+	std::size_t found(initStr.find_first_not_of("0123456789 +-/*"));
+	if (found != std::string::npos)
+		return (false);
+	std::istringstream ss(initStr);
+	std::string element;
+	while(ss >> element) {
+		m_stackNum.push(element);
+	}
+	
+	return (true);
 }
