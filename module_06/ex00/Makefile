@@ -5,15 +5,14 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 
 SRCS = main.cpp \
-	   utils.cpp \
-	   printFrom.cpp
+	   ScalarConverter.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
 
-NAME: $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)

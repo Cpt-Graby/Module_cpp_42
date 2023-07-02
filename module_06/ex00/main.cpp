@@ -1,3 +1,4 @@
+#include "ScalarConverter.hpp"
 #include <iostream>
 #include <limits>
 #include <sstream>
@@ -21,25 +22,24 @@ int	main(int argc, char **argv) {
 		std::cout << "Rentre le bon nombre d'arguments \n" ;
 		return (0);
 	}
-	std::string strArg(argv[1]);
-	if (!checkSpecialTerm(strArg))
-		return (0);
-
-	try {
-		if (isValidInput(strArg)) 
-			throw std::invalid_argument("Erreur de format");
-		else if (!isInt(strArg)) 
-			printFromInt(strArg);
-		else if (isChar(strArg)) 
-			printFromChar(strArg);
-		else if (!isDouble(strArg))
-			printFromDouble(strArg);
-		else
-			printFromFloat(strArg);
+	/*
+	try  {
+		double	 DS(-2147484656.45);
+		float SUPER(-2147484656.45);
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "Ces deux valeurs sont similaires\n";
+		std::cout << "ici      DS: ";
+		std::cout << DS << std::endl;
+		std::cout << "ici   SUPER: ";
+		std::cout << SUPER << std::endl;
+		std::cout << "ici cast DS: ";
+		std::cout << static_cast<float>(DS) << std::endl;
+		std::cout << "-----------\n";
 	}
-	catch ( const std::invalid_argument& ia ) {
-		std::cerr << "Invalid argument: " << ia.what() << "\n";
-		return (1);
-		}
+	catch (std::exception &e) {
+		std::cout << e.what();
+	}
+	*/
+	ScalarConverter Tester(argv[1]);
 	return (0);
 }
