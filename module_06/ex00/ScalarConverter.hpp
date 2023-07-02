@@ -18,11 +18,6 @@ class ScalarConverter {
 		int m_iNumber;
 		float m_fNumber;
 		double m_dNumber;
-		bool m_boolC;
-		bool m_boolI;
-		bool m_boolF;
-		bool m_boolD;
-		bool m_boolInf;
 		bool m_boolInp;
 		// Checking for special term like: nan, nanf, inf and so on.
 		int checkSpecialTerm(void);

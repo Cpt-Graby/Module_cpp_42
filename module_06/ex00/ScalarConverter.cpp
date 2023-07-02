@@ -1,9 +1,7 @@
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(): m_boolC(false), m_boolI(false),
-	m_boolF(false), m_boolD(false),
-	m_boolInf(false), m_boolInp(false){}
+ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::~ScalarConverter() {}
 
@@ -26,14 +24,11 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &rhs) {
 	return (*this);
 }
 
-ScalarConverter::ScalarConverter(char *arg) : m_input(arg), m_boolC(false),
-		m_boolI(false), m_boolF(false),	m_boolD(false), m_boolInf(false),
-		m_boolInp(false) {
+ScalarConverter::ScalarConverter(char *arg) : m_input(arg) {
 	convert(arg);
 }
 
 void ScalarConverter::convert(const std::string &t_input){
-	m_boolInf = true;
 	m_input = t_input;
 	if (checkSpecialTerm() == 0)
 		return ;
@@ -134,7 +129,7 @@ void ScalarConverter::printFromFloat() {
 	// ----------- case char
 	if (m_fNumber >= std::numeric_limits<char>::min() &&  
 			m_fNumber <= std::numeric_limits<char>::max()) {
-		char m_cNumber = static_cast<char>(m_fNumber);
+		m_cNumber = static_cast<char>(m_fNumber);
 		if ( m_cNumber < 32 || m_cNumber > 126)
 			std::cout << "char  : Non displayable\n";
 		else
@@ -144,12 +139,13 @@ void ScalarConverter::printFromFloat() {
 		std::cout << "char  : impossible \n";
 	// ----------- case int
 	if (m_fNumber >= std::numeric_limits<int>::min() &&
-			m_fNumber <= std::numeric_limits<int>::max()) {
-		std::cout << "int   : " << static_cast<int>(m_fNumber) << "\n";
+			m_fNumber < std::numeric_limits<int>::max()) {
+		m_iNumber = static_cast<int>(m_fNumber);
+		std::cout << "int   : " << m_iNumber << "\n";
 	}
 	else
 		std::cout << "int   : impossible \n";
-	// ----------- case float
+	// ----------- case float & double
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float : " << m_fNumber << "f\n";
 	std::cout << "double: " << static_cast<double>(m_fNumber) << "\n";
@@ -162,7 +158,7 @@ void ScalarConverter::printFromDouble() {
 	// ----------- case char
 	if ( m_dNumber >= std::numeric_limits<char>::min() &&  
 			m_dNumber <= std::numeric_limits<char>::max()) {
-		char m_cNumber = static_cast<char>(m_dNumber);
+		m_cNumber = static_cast<char>(m_dNumber);
 		if ( m_cNumber < 32 || m_cNumber > 126)
 			std::cout << "char  : Non displayable\n";
 		else
@@ -173,7 +169,8 @@ void ScalarConverter::printFromDouble() {
 	// ----------- case int
 	if ( m_dNumber >= std::numeric_limits<int>::min() &&  
 			m_dNumber <= std::numeric_limits<int>::max()) {
-		std::cout << "int   : " << static_cast<int>(m_dNumber) << "\n";
+		m_iNumber = static_cast<int>(m_fNumber);
+		std::cout << "int   : " << m_iNumber << "\n";
 	}
 	else
 		std::cout << "int   : impossible \n";

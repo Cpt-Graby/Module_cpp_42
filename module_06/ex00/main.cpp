@@ -24,8 +24,8 @@ int	main(int argc, char **argv) {
 	}
 	/*
 	try  {
-		double	 DS(-2147484656.45);
-		float SUPER(-2147484656.45);
+		double	 DS(2147483646);
+		float SUPER(2147483646);
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "Ces deux valeurs sont similaires\n";
 		std::cout << "ici      DS: ";
