@@ -15,6 +15,12 @@ class ScalarConverter {
 		// Value
 		std::string m_input;
 		// Checking for special term like: nan, nanf, inf and so on.
+		~ScalarConverter(void);
+		ScalarConverter(const ScalarConverter &rhs);
+		ScalarConverter &operator=(const ScalarConverter &rhs);
+		ScalarConverter(char *arg);
+	public:
+		static void convert(const std::string &t_input);
 		static int checkSpecialTerm(const std::string t_input);
 		static void printSpecialTerm(const int indexMatch);
 		// Functions to determine the type of the string;
@@ -27,12 +33,6 @@ class ScalarConverter {
 		static void printFromChar(const std::string &input);
 		static void printFromInt(const std::string &input);
 		static void printFromFloat(const std::string &input);
-	public:
-		~ScalarConverter(void);
-		ScalarConverter(const ScalarConverter &rhs);
-		ScalarConverter &operator=(const ScalarConverter &rhs);
-		ScalarConverter(char *arg);
-		static void convert(const std::string &t_input);
 };
 
 #endif

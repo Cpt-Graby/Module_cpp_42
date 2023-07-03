@@ -4,24 +4,14 @@
 #include <sstream>
 #include <cstdlib>
 
-// We will use the fonction of std::stod
-// https://cplusplus.com/reference/string/stod/
-
-char checkSpecialTerm(std::string &t_strArg);
-bool isValidInput(const std::string &input);
-bool isChar(const std::string &input);
-bool isInt(const std::string &input);
-bool isDouble(const std::string &input);
-void printFromInt(std::string &input);
-void printFromChar(std::string &input);
-void printFromFloat(std::string &input);
-void printFromDouble(std::string &input);
-
 int	main(int argc, char **argv) {
 	if (argc != 2) {
 		std::cout << "Rentre le bon nombre d'arguments \n" ;
 		return (0);
 	}
+	ScalarConverter::convert(argv[1]);
+	return (0);
+}
 	/*
 	try  {
 		double	 DS(2147483646);
@@ -40,6 +30,3 @@ int	main(int argc, char **argv) {
 		std::cout << e.what();
 	}
 	*/
-	ScalarConverter Tester(argv[1]);
-	return (0);
-}

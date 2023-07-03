@@ -4,7 +4,8 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 
-SRCS = main.cpp 
+SRCS = main.cpp \
+	   Serializer.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
