@@ -1,4 +1,3 @@
-Voici un sujet de C++98 contenant trois exercices. Voici un résumé des notions à connaître pour résoudre ces exercices :
 
 ## Exercise 00: Bitcoin Exchange
 - Manipulation de fichiers en C++. 
