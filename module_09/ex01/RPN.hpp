@@ -10,6 +10,7 @@
 class RPN {
 	private:
 		std::stack<std::string> m_stackNum;
+		double m_result;
 		RPN();
 		bool checkInput(const std::string &initStr);
 
