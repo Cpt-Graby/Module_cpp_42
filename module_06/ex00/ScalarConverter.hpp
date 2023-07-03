@@ -14,30 +14,25 @@ class ScalarConverter {
 		ScalarConverter(void);
 		// Value
 		std::string m_input;
-		char m_cNumber;
-		int m_iNumber;
-		float m_fNumber;
-		double m_dNumber;
-		bool m_boolInp;
 		// Checking for special term like: nan, nanf, inf and so on.
-		int checkSpecialTerm(void);
-		void printSpecialTerm(const int indexMatch);
+		static int checkSpecialTerm(const std::string t_input);
+		static void printSpecialTerm(const int indexMatch);
 		// Functions to determine the type of the string;
-		bool isValidInput(std::string &input) const ;
-		bool isInt(std::string &input) const;
-		bool isChar(std::string &input) const;
-		bool isDouble(std::string &input) const;
+		static bool isValidInput(std::string input) ;
+		static bool isInt(std::string input);
+		static bool isChar(std::string input);
+		static bool isDouble(std::string input);
 		// Function to print once the char is determined
-		void printFromDouble();
-		void printFromChar();
-		void printFromInt();
-		void printFromFloat();
+		static void printFromDouble(const std::string &input);
+		static void printFromChar(const std::string &input);
+		static void printFromInt(const std::string &input);
+		static void printFromFloat(const std::string &input);
 	public:
 		~ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &rhs);
 		ScalarConverter &operator=(const ScalarConverter &rhs);
 		ScalarConverter(char *arg);
-		void convert(const std::string &t_input);
+		static void convert(const std::string &t_input);
 };
 
 #endif
