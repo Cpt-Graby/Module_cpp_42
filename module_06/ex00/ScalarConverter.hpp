@@ -15,11 +15,11 @@ class ScalarConverter {
 		// Value
 		std::string m_input;
 		// Checking for special term like: nan, nanf, inf and so on.
-		~ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &rhs);
 		ScalarConverter &operator=(const ScalarConverter &rhs);
 		ScalarConverter(char *arg);
 	public:
+		~ScalarConverter(void);
 		static void convert(const std::string &t_input);
 		static int checkSpecialTerm(const std::string t_input);
 		static void printSpecialTerm(const int indexMatch);
