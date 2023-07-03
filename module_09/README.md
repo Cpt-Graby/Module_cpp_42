@@ -24,7 +24,9 @@ Voici de petits liens utiles pour cette exercice:
 - Mesure du temps d'exécution des algorithmes
 
 Voici de petits liens utiles pour cette exercice:
-- Algorithme de tri par fusion-insertion : [Merge-Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort#Variations)
+- Mesure du temps d'exécution en C++ : [Timing your code using C++](https://www.geeksforgeeks.org/measure-execution-time-function-cpp/)
+- Algorithm of Ford-Johnson: [Merge-Insertion Sort](https://en.wikipedia.org/wiki/Merge-insertion_sort)
+- Algorithme de tri par fusion-insertion : [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort#Variations)
 
 ## Liens utiles pour les containers:
 - Back To Basics: C++ Containers : [Back To Basics: C++ Containers](https://www.geeksforgeeks.org/c-stl-tutorial/)
