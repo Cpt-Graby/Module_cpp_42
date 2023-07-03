@@ -7,7 +7,7 @@
 
 Voici de petits liens utiles pour cette exercice:
 - Manipulation de fichiers en C++ : [C++ File Input/Output](https://www.geeksforgeeks.org/file-handling-c-classes/)
-- Exemple d'implementation en C++ : [Using the Stack to create a RPN (post-fix notation) Calculator](https://youtu.be/zla7ha0OORM)
+
 
 ## Exercise 01: Reverse Polish Notation (RPN)
 - Notation polonaise inversée (RPN)
@@ -16,6 +16,7 @@ Voici de petits liens utiles pour cette exercice:
 
 Voici de petits liens utiles pour cette exercice:
 - Notation polonaise inversée (RPN) : [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+- Exemple d'implementation en C++ : [Using the Stack to create a RPN (post-fix notation) Calculator](https://youtu.be/zla7ha0OORM)
 
 ## Exercise 02: PmergeMe
 - Algorithme de tri par fusion-insertion (Ford-Johnson algorithm)
