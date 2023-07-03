@@ -2,10 +2,10 @@
 #include "Array.hpp"
 
 int main(void) {
-	unsigned int number = -3;
-	std::cout << number;
+	Array<int> a;
+	std::cout << a.size() << std::endl;
+	std::cout << "-------------\n";
 	Array<int> b(5);
-	Array<int> cl(number);
 	for (int i = 0; i < 5; i++) {
 		b[i] = i; 
 		std::cout << b[i] << "\n";
