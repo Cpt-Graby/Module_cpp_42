@@ -1,4 +1,4 @@
-## Chapitre III - Exercice 00: Quelques fonctions pour commencer
+## Exercice 00: Quelques fonctions pour commencer
 
 - Utilisation des templates en C++ pour créer des fonctions génériques.
 - Déclaration de fonctions templates en utilisant le mot-clé `template<typename T>`.
@@ -11,7 +11,7 @@
 - [Template specialization](https://en.cppreference.com/w/cpp/language/template_specialization)
 - [Template argument deduction](https://en.cppreference.com/w/cpp/language/template_argument_deduction)
 
-## Chapitre IV - Exercice 01: Iter
+## Exercice 01: Iter
 
 - Création d'une fonction template prenant des paramètres génériques, y compris des références.
 - Utilisation d'un pointeur pour accéder à un tableau passé en paramètre.
@@ -22,7 +22,7 @@
 - [C++ Pointers and Arrays](https://www.geeksforgeeks.org/pointers-c-examples/)
 - [Understanding Arrays in C++](https://www.geeksforgeeks.org/understanding-array-indexoutofboundsexception-exception-in-java/)
 
-## Chapitre V - Exercice 02: Array
+## Exercice 02: Array
 
 - Création d'une classe template pour stocker des éléments de type générique, y compris des références.
 - Utilisation de l'opérateur `new[]` pour allouer de la mémoire pour le tableau.
