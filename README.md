@@ -6,18 +6,24 @@ Notions:
 Introduction au c++ avec les syntaxes de base.
 Plus presentation des classes et objets.
 
-#Module 02:
+# Module 02:
 Les fonctions new et delete.
 Les references.
 Ouvertures/lecture/creation de fichiers.
 
-#Module 03:
+# Module 03:
 Heritages.
 
-#Module 04:
+# Module 04:
 Le mots clee virtuals.
 
-#Module 05: 
+# Module 05: 
 Recuperation d'erreur avec les blocs try and catch.
 
-#Module 06
+# Module 06
+Differents type de cast
+
+# Module 07
+Les fonctions templates
+
+# Module 08
