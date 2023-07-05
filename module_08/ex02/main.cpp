@@ -21,9 +21,14 @@ int main()
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
-	std::stack<int> s(mstack);
+	std::cout << "Trying the copy operator\n";
+	MutantStack<int> s = mstack;
+	for (MutantStack<int>::iterator it2 = s.begin(); it2 != s.end(); ++it2) {
+		std::cout << *it << std::endl;
+	}
+
 	return 0;
 }

@@ -12,7 +12,12 @@ public:
 
     // Constructeurs
     MutantStack() : std::stack<T, Container>() {}
-    MutantStack(const MutantStack<T, Container>& other) : std::stack<T, Container>(other) {}
+    MutantStack(const MutantStack<T, Container>& other) : std::stack<T, Container>(other) {
+        if (this != &other)
+        {
+            std::stack<T, Container>::operator=(other);
+        }
+	}
 
     // Destructeur
     ~MutantStack() {}

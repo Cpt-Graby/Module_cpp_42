@@ -42,6 +42,15 @@ void Span::addNumber(int i) {
 	}
 }
 
+void Span::addNumber(std::vector<int> &t_vector) {
+
+    if ( t_vector.size() > (m_maxSize - m_qtyElement) )
+        throw std::out_of_range("Span::addNumber: too much element");
+	std::vector<int>::const_iterator itBegin = t_vector.begin();
+	std::vector<int>::const_iterator itEnd = t_vector.end();
+    m_tab.insert( m_tab.end(), itBegin, itEnd);
+}
+
 unsigned int Span::longestSpan() const{
 	if (m_qtyElement < 2)
 		throw NoDistanceExcept();

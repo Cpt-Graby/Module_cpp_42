@@ -16,6 +16,7 @@ class Span {
 		Span(const Span & rhs);
 		Span& operator=(const Span &rhs);
 		~Span();
+		void addNumber(std::vector<int> &t_vector);
 		void addNumber(int i);
 		unsigned int shortestSpan() const;
 		unsigned int longestSpan() const;
