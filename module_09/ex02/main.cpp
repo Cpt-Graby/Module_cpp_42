@@ -27,17 +27,11 @@ bool inputToStorage(std::vector<unsigned int> *t_vec,
 	return (true);
 }
 
-void printContentStorage(std::vector<unsigned int> *t_vec, 
-		std::list<unsigned int> *t_li)
-{
-	std::cout << "Vector list : ";
-	for (std::vector<unsigned int>::iterator it = t_vec->begin(); it < t_vec->end(); it++ )
-		std::cout << *it << " ";
-	std::cout << "\n";
-
-	std::cout << "List list : ";
-	for (std::list<unsigned int>::iterator it = t_li->begin(); it != t_li->end(); it++ )
-		std::cout << *it << " ";
+void printUnsortedContent(char **t_argv) {
+	std::cout << "Before : ";
+	for (int i = 1; t_argv[i] != NULL; ++i) {
+		std::cout << " " << t_argv[i];
+	}
 	std::cout << "\n";
 }
 
@@ -46,14 +40,14 @@ int main(int argc, char **argv) {
 	std::list<unsigned int>		t_list;
 
 	if (argc <= 2) {
-		std::cerr << "Error : Not enough input sequence." << std::endl;
+		std::cout << "Error : Not enough input sequence." << std::endl;
 		return (1);
 	}
 	if (inputToStorage(&t_vector, &t_list, argv) == false)
 	{
-		std::cerr << "Error: Invalid Input\n";
+		std::cout << "Error: Invalid Input\n";
 		return (1);
 	}
-	printContentStorage(&t_vector, &t_list);
+	printUnsortedContent(argv);
 	return (0);
 }
