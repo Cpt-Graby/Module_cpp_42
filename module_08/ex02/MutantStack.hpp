@@ -3,7 +3,7 @@
 
 #include <stack>
 
-	template<typename T, typename Container = std::deque<T> >
+template<typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
 {
 public:
@@ -13,10 +13,6 @@ public:
     // Constructeurs
     MutantStack() : std::stack<T, Container>() {}
     MutantStack(const MutantStack<T, Container>& other) : std::stack<T, Container>(other) {
-        if (this != &other)
-        {
-            std::stack<T, Container>::operator=(other);
-        }
 	}
 
     // Destructeur
@@ -25,12 +21,7 @@ public:
     // Opérateur d'assignation
     MutantStack<T, Container>& operator=(const MutantStack<T, Container>& other)
     {
-        if (this != &other)
-        {
-			for (std::stack<T, Container>::iterator it = other.begin(); it != other.end(); it++) {
-				this.push_back(*it);
-			}
-        }
+		std::stack< T, Container >::operator=(other);
         return *this;
     }
 
