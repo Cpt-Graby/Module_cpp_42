@@ -27,7 +27,9 @@ public:
     {
         if (this != &other)
         {
-            std::stack<T, Container>::operator=(other);
+			for (std::stack<T, Container>::iterator it = other.begin(); it != other.end(); it++) {
+				this.push_back(*it);
+			}
         }
         return *this;
     }
