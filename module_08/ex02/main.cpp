@@ -2,6 +2,8 @@
 #include "MutantStack.hpp"
 #include <iostream>
 
+void test_float();
+
 int main()
 {
 	MutantStack<int> mstack;
@@ -23,11 +25,33 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::cout << "Trying the copy operator\n";
-	MutantStack<int> s = mstack;
-	for (MutantStack<int>::iterator it2 = s.begin(); it2 != s.end(); ++it2) {
-		std::cout << *it << std::endl;
-	}
-
+	MutantStack<int> s(mstack);
+	test_float();
 	return 0;
+}
+
+void test_float() {
+	std::cout << "Debut des tests avec des float\n";
+	MutantStack<float> mfstack;
+	std::cout << "Size: " << mfstack.size() << std::endl;
+	mfstack.push(5);
+	mfstack.push(17);
+	std::cout << mfstack.top() << std::endl;
+	mfstack.pop();
+	std::cout << "Size: " << mfstack.size() << std::endl;
+	mfstack.push(3);
+	mfstack.push(5);
+	mfstack.push(737);
+	mfstack.push(0);
+	MutantStack<float>::iterator it = mfstack.begin();
+	MutantStack<float>::iterator ite = mfstack.end();
+	++it;
+	--it;
+	std::cout << "Fin des input\n";
+	while (it != ite) {
+		std::cout << *it << std::endl;
+		++it;
+	}
+	MutantStack<float> s2(mfstack);
+
 }
