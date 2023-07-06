@@ -26,6 +26,9 @@ int main()
 		++it;
 	}
 	MutantStack<int> s(mstack);
+	for (MutantStack<int>::iterator e = s.begin(); e != s.end(); ++e) {
+		std::cout << *e << "\n";
+	}
 	test_float();
 	return 0;
 }
