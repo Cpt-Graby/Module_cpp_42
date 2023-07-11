@@ -8,8 +8,11 @@
 class PmergeMe {
 	public:
 		~PmergeMe();
-		static void insertMergeSort(std::vector<unsigned int> &t_vector);
-		static void insertMergeSort(std::list<unsigned int> &t_list);
+		static void merge_sort(std::list<int>& arr);
+		static void merge(std::list<int>& arr, std::list<int>& left, std::list<int>& right);
+		static void merge_sort(std::vector<int>& arr);
+		static void merge_sort(std::vector<int>& arr, int left, int right);
+		static void merge(std::vector<int>& arr, int left, int mid, int right);
 	private:
 		PmergeMe();
 		PmergeMe(const PmergeMe &src);
