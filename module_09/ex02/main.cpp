@@ -2,11 +2,11 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <list>
+#include <deque>
 #include "PmergeMe.hpp"
 
 bool inputToStorage(std::vector<unsigned int> *t_vec, 
-		std::list<unsigned int> *t_li, char **t_arg)
+		std::deque<unsigned int> *t_li, char **t_arg)
 {
 	std::string			input(t_arg[1]);
 	std::stringstream	ss;
@@ -46,13 +46,13 @@ void printsortedContent(std::vector<unsigned int> t_vec) {
 
 int main(int argc, char **argv) {
 	std::vector<unsigned int>	t_vector;
-	std::list<unsigned int>		t_list;
+	std::deque<unsigned int>	t_deque;
 
 	if (argc <= 2) {
 		std::cout << "Error : Not enough input sequence." << std::endl;
 		return (1);
 	}
-	if (inputToStorage(&t_vector, &t_list, argv) == false) {
+	if (inputToStorage(&t_vector, &t_deque, argv) == false) {
 		std::cout << "Error: Invalid Input\n";
 		return (1);
 	}

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
+#include <deque>
 
 class PmergeMe {
 	public:
@@ -15,14 +15,12 @@ class PmergeMe {
 		static void binaryInsertValue(std::vector<unsigned int> &top, const unsigned int value);
 		static void binaryInsertValueRestricted(std::vector<unsigned int> &top, const unsigned int value, const unsigned int numAdded);
 
-		/*
-		static void PmergeMe::splitElement(std::vector<int> & vec, std::vector<int>& indexes);
-		static void	PmergeMe::splitVec(std::vector<int> & t_vec);
-		static void	PmergeMe::sortVec(std::vector<int> & t_vec);
-		static void	PmergeMe::recurSortVec(std::vector<int>& vec, std::vector<int>& indexes);
-		static void	PmergeMe::rearrangeVec(std::vector<int>& vec, std::vector<int>& indexes);
-		static void	PmergeMe::binaryInsertVec(std::vector<int>& vecMain, std::vector<int>& vecPend, std::vector<int>& indMain, std::vector<int>& indPend);
-		*/
+		static void MergeInsertionSort(std::deque<unsigned int> & t_vec);
+		static void initRecursiveSplit(std::deque<unsigned int> &left, std::deque<unsigned int> &right);
+		static void swapElementVector(std::deque<unsigned int> &left, std::deque<unsigned int> &right);
+		static void binaryInsert(std::deque<unsigned int> &top, std::deque<unsigned int> &toAdd);
+		static void binaryInsertValue(std::deque<unsigned int> &top, const unsigned int value);
+		static void binaryInsertValueRestricted(std::deque<unsigned int> &top, const unsigned int value, const unsigned int numAdded);
 	private:
 		PmergeMe();
 		PmergeMe(const PmergeMe &src);
