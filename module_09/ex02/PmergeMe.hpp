@@ -8,11 +8,21 @@
 class PmergeMe {
 	public:
 		~PmergeMe();
-		static void merge_sort(std::list<int>& arr);
-		static void merge(std::list<int>& arr, std::list<int>& left, std::list<int>& right);
-		static void merge_sort(std::vector<int>& arr);
-		static void merge_sort(std::vector<int>& arr, int left, int right);
-		static void merge(std::vector<int>& arr, int left, int mid, int right);
+		static void MergeInsertionSort(std::vector<unsigned int> & t_vec);
+		static void initRecursiveSplit(std::vector<unsigned int> &left, std::vector<unsigned int> &right);
+		static void swapElementVector(std::vector<unsigned int> &left, std::vector<unsigned int> &right);
+		static void binaryInsert(std::vector<unsigned int> &top, std::vector<unsigned int> &toAdd);
+		static void binaryInsertValue(std::vector<unsigned int> &top, const unsigned int value);
+		static void binaryInsertValueRestricted(std::vector<unsigned int> &top, const unsigned int value, const unsigned int numAdded);
+
+		/*
+		static void PmergeMe::splitElement(std::vector<int> & vec, std::vector<int>& indexes);
+		static void	PmergeMe::splitVec(std::vector<int> & t_vec);
+		static void	PmergeMe::sortVec(std::vector<int> & t_vec);
+		static void	PmergeMe::recurSortVec(std::vector<int>& vec, std::vector<int>& indexes);
+		static void	PmergeMe::rearrangeVec(std::vector<int>& vec, std::vector<int>& indexes);
+		static void	PmergeMe::binaryInsertVec(std::vector<int>& vecMain, std::vector<int>& vecPend, std::vector<int>& indMain, std::vector<int>& indPend);
+		*/
 	private:
 		PmergeMe();
 		PmergeMe(const PmergeMe &src);
