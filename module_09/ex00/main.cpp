@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 		return (1);
 	}
 	BitCoinExchange Data("data.csv");
-	Data.inputProcess("input.txt");
+	Data.inputProcess(argv[1]);
 	return (0);
 }
 
