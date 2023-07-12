@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <chrono>
+#include <cstdlib>
 #include <deque>
 #include "PmergeMe.hpp"
 
@@ -29,7 +31,7 @@ bool inputToStorage(std::vector<unsigned int> *t_vec,
 }
 
 void printUnsortedContent(char **t_argv) {
-	std::cout << "Before : ";
+	std::cout << "Before: ";
 	for (int i = 1; t_argv[i] != NULL; ++i) {
 		std::cout << " " << t_argv[i];
 	}
@@ -37,7 +39,7 @@ void printUnsortedContent(char **t_argv) {
 }
 
 void printsortedContent(std::vector<unsigned int> t_vec) {
-	std::cout << "After : ";
+	std::cout << "After: ";
 	for (std::vector<unsigned int>::iterator i = t_vec.begin(); i != t_vec.end(); ++i) {
 		std::cout << *i << " ";
 	}
@@ -57,7 +59,24 @@ int main(int argc, char **argv) {
 		return (1);
 	}
 	printUnsortedContent(argv);
+
+	// Declaring time
+	std::chrono::high_resolution_clock::time_point start;
+	std::chrono::high_resolution_clock::time_point end;
+	std::chrono::nanoseconds duration;
+
+	start = std::chrono::high_resolution_clock::now();
 	PmergeMe::MergeInsertionSort(t_vector);
+	end = std::chrono::high_resolution_clock::now();
 	printsortedContent(t_vector);
+	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+	std::cout << "Time to process a range of " << t_vector.size() << " elements with std::[vector] : " << duration.count() << " ns\n";
+	
+	// Chrono deque
+	start = std::chrono::high_resolution_clock::now();
+	PmergeMe::MergeInsertionSort(t_deque);
+	end = std::chrono::high_resolution_clock::now();
+	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+	std::cout << "Time to process a range of " << t_deque.size() << " elements with std::[vector] : " << duration.count() << " ns\n";
 	return (0);
 }
