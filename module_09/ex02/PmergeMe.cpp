@@ -39,12 +39,15 @@ void PmergeMe::initRecursiveSplit(std::vector<unsigned int> &left,
 	PmergeMe::swapElementVector(left, right);
 
 	PmergeMe::initRecursiveSplit(right, tmpRight);
-	PmergeMe::binaryInsert(right, tmpRight);
+	if (!tmpRight.empty())
+		PmergeMe::binaryInsert(right, tmpRight);
 
 	PmergeMe::initRecursiveSplit(left, tmpRight);
-	PmergeMe::binaryInsert(left, tmpRight);
-
-	PmergeMe::binaryInsert(left, right);
+	if (!tmpRight.empty())
+		PmergeMe::binaryInsert(left, tmpRight);
+	if (!right.empty()) {
+		PmergeMe::binaryInsert(left, right);
+	}
 
 	if (sizeVec % 2 != 0) {
 		PmergeMe::binaryInsertValue(left, tmp);
@@ -78,7 +81,6 @@ void PmergeMe::binaryInsertValue(std::vector<unsigned int> &top,
 	return ;
 }
 
-
 /* Ensemble des fonctions utiles une fois les elements du split cree
  * et repartie entre pair
  * */
@@ -93,10 +95,18 @@ void PmergeMe::binaryInsertValueRestricted(std::vector<unsigned int> &top,
 	return ;
 }
 
+// IMPLEMENTATION POUR DEQUE
+// cette partie est identique a la precedente
+
 void PmergeMe::binaryInsert(std::vector<unsigned int> &top, std::vector<unsigned int> &toAdd) {
 	if (toAdd.empty())
 		return ;
-	unsigned int numAddElement = 1;
+	unsigned int numAddElement = 0;
+	if (toAdd.size() == 1) {
+		top.insert(top.begin(), toAdd.back());
+		toAdd.erase(toAdd.begin(), toAdd.end());
+		return ;
+	}
 	for (std::vector<unsigned int>::iterator it = toAdd.begin(); it != toAdd.end(); ++it) {
 		PmergeMe::binaryInsertValueRestricted(top, *it, numAddElement);
 		++numAddElement;
@@ -104,9 +114,6 @@ void PmergeMe::binaryInsert(std::vector<unsigned int> &top, std::vector<unsigned
 	toAdd.erase(toAdd.begin(), toAdd.end());
 	return ;
 }
-
-// IMPLEMENTATION POUR DEQUE
-// cette partie est identique a la precedente
 
 void PmergeMe::MergeInsertionSort(std::deque<unsigned int> & t_vec) {
 	std::deque<unsigned int> left = t_vec; 
@@ -200,9 +207,15 @@ void PmergeMe::binaryInsertValueRestricted(std::deque<unsigned int> &top,
 }
 
 void PmergeMe::binaryInsert(std::deque<unsigned int> &top, std::deque<unsigned int> &toAdd) {
+
 	if (toAdd.empty())
 		return ;
-	unsigned int numAddElement = 1;
+	unsigned int numAddElement = 0;
+	if (toAdd.size() == 1) {
+		top.insert(top.begin(), toAdd.back());
+		toAdd.erase(toAdd.begin(), toAdd.end());
+		return ;
+	}
 	for (std::deque<unsigned int>::iterator it = toAdd.begin(); it != toAdd.end(); ++it) {
 		PmergeMe::binaryInsertValueRestricted(top, *it, numAddElement);
 		++numAddElement;
